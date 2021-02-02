@@ -1,0 +1,17 @@
+{
+    // the publication portal will use this to decide who has accces to data
+    "publication": {
+        "self": {
+            "individual": true, // shares individual responses with the respondent
+            "cumulative": true, // shares all responses with the respondent
+        },
+        "others": { // decides which other associated members have access to which subset
+            "members": [ {"id": "tsd-person-id", "keys": ["col1", "col2", "all"] } ]
+        }
+    },
+    "datasets": ["csv", "excel", "spss"], // dataloader outputs
+    "permissions": {
+        "datasets": "pXX-member-group", // access control for dataloader outputs
+        "api": ["pXX-core-group", "pXX-admin-group"], // access control for API (inside TSD)
+    },
+}
