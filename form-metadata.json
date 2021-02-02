@@ -14,4 +14,32 @@
         "datasets": "pXX-member-group", // access control for dataloader outputs
         "api": ["pXX-core-group", "pXX-admin-group"], // access control for API (inside TSD)
     },
+    "activated_on": "timestamp",
+    "activated_by": "pxx-user",
+    "deactivated_on": "timestamp", //the is stopped on certain date
+    "deactivated_by": "pxx-user",
+    "active": true, // The form is currently active
+    "is_consent_form": true, // This is a consent form
+
+    // Here goes a small description of the questions in the form. This is just a suggestion.
+    "questions": [
+      {
+        "id": 1111,
+        "text": "What do you ..",
+        "type:": "", // miltiple_choice, text_input, checkbox, autofill, description -  some kind of typing 
+        "codebook_code": "question_1",
+        "is_id_question": "No", // No or national_id_number, dataporten_sub, feide_id ,  ..." // Is this question represents unique id for the respondent if so what
+        "is_consent_question": true,
+        "answers": [
+              {"id": 2222,
+               "text": "Yes",
+               "codebook_code": "answer_x",
+               "is_affirmative_answer" : true,
+
+              }
+        ]
+      }
+
+    ]
+
 }
