@@ -9,11 +9,11 @@ Documentation for the integration.
 * unanswered questions should be included
 * metadata in place
 
-2. Form metadata
+2. HTTP headers
 
-3. Functional attachment upload
+3. Form metadata
 
-4. HTTP headers
+4. Functional attachment upload
 
 5. Encryption for caching
 
