@@ -1,23 +1,23 @@
-{
-    "metadata":{
-        "id": 1293021890318,
-        "delivered on":  "timestamp",
-        "completion_time": "timestamp"
-    },
-    "data":[
-        {
-            "question_id": 3901829302183,
-            "codebook_code": "question_1",
-            "values": [
-                {
-                    "id": 222,
-                    "codebook_code": "answer_1",
-                    "value": "xxxxx"
-                },
-                 ......
-            ],
-            "value": "fl;ksa;ldksl;kds;alk"
-        }
-
-    ]
-}
+[
+  {
+    "answers": [
+      {
+        "questionId": 1327963,
+        "textAnswer": "abc",
+        "externalQuestionId": "a"
+      },
+      {
+        "questionId": 1327964,
+        "textAnswer": "def",
+        "externalQuestionId": "b"
+      }
+    ],
+    "metaData": {
+      "delivered": true,
+      "answerTime": 9981,
+      "createdDate": "2021-01-25T00:00:00.000+0100",
+      "modifiedDate": "2021-01-25T00:00:00.000+0100",
+      "submissionId": 3078832
+    }
+  }
+]
