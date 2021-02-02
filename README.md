@@ -6,8 +6,8 @@ Documentation for the integration.
 ## Priority order
 
 1. Submissions
-1.1 unanswered questions should be included
-1.2 metadata in place
+* unanswered questions should be included
+* metadata in place
 
 2. Form metadata
 
