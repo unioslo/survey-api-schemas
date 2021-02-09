@@ -1,6 +1,8 @@
 [
   {
     "answers": [
+      // here we need the codebook value
+      // and the answer
       {
         "questionId": 1327963,
         "textAnswer": "abc",
@@ -13,11 +15,20 @@
       }
     ],
     "metaData": {
+      // this set of keys is enough to get going
       "delivered": true,
       "answerTime": 9981,
       "createdDate": "2021-01-25T00:00:00.000+0100",
       "modifiedDate": "2021-01-25T00:00:00.000+0100",
-      "submissionId": 3078832
+      "submissionId": 3078832,
+      // in time we want the following keys
+      // for cases where respondents authenticate
+      // with either idporten, or dataporten
+      "respondent": {
+        "provider": "", // <idporten,dataporten>
+        "sub": "", // the OIDC sub
+        "personal_identifier": "", // maybe this too
+      }
     }
   }
 ]
