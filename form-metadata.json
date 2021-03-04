@@ -9,7 +9,7 @@
             // decides which other associated members have access to which subset
             "members": [ {"id": "tsd-person-id", "keys": ["col1", "col2", "all"] } ],
             // or by way of groups
-            "groups": [ {"group": "p{num}-{org}-adm-group", "keys": "all"} ],
+            "groups": [ {"group": "p{num}-{some}-group", "keys": "all"} ],
         }
     },
     "datasets": ["csv", "excel", "spss"], // dataloader outputs
