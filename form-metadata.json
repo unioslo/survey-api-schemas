@@ -5,8 +5,11 @@
             "individual": true, // shares individual responses with the respondent
             "cumulative": true, // shares all responses with the respondent
         },
-        "others": { // decides which other associated members have access to which subset
-            "members": [ {"id": "tsd-person-id", "keys": ["col1", "col2", "all"] } ]
+        "others": {
+            // decides which other associated members have access to which subset
+            "members": [ {"id": "tsd-person-id", "keys": ["col1", "col2", "all"] } ],
+            // or by way of groups
+            "groups": [ {"group": "p{num}-{org}-adm-group", "keys": "all"} ],
         }
     },
     "datasets": ["csv", "excel", "spss"], // dataloader outputs
@@ -26,7 +29,7 @@
       {
         "id": 1111,
         "text": "What do you ..",
-        "type:": "", // miltiple_choice, text_input, checkbox, autofill, description -  some kind of typing 
+        "type:": "", // miltiple_choice, text_input, checkbox, autofill, description -  some kind of typing
         "codebook_code": "question_1",
         "is_id_question": "No", // No or national_id_number, dataporten_sub, feide_id ,  ..." // Is this question represents unique id for the respondent if so what
         "is_consent_question": true,
