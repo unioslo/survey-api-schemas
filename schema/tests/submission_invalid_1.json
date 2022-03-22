@@ -1,0 +1,30 @@
+{
+    "$schema": "../Submission.json",
+    "answers": [
+        {
+            "questionId": 1327963,
+            "questionType": "radioBox",
+            "textAnswer": "abc",
+            "externalQuestionId": "a",
+            "questionCodebookCode": "question_a"
+        },
+        {
+            "questionId": 1327964,
+            "textAnswer": "def",
+            "externalQuestionId": "b",
+            "questionCodebookCode": "question_b"
+        }
+    ],
+    "metaData": {
+        "delivered": true,
+        "answerTimeSeconds": 9981,
+        "createdDate": "2021-01-25T00:00:00.000+0100",
+        "modifiedDate": "2021-01-25T00:00:00.000+0100",
+        "submissionId": 3078832,
+        "respondent": {
+            "provider": "idporten",
+            "sub": "",
+            "personal_identifier": ""
+        }
+    }
+}

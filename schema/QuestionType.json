@@ -1,0 +1,14 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "QuestionType.json",
+    "$comment": "$id should be URL where the schema is available.",
+    "description": "Nettskjema question types",
+    "type": "string",
+    "enum": [
+        "textArea",
+        "checkBox",
+        "radioBox",
+        "number",
+        "matrix"
+    ]
+}
