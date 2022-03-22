@@ -1,0 +1,126 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "Submission.json",
+    "$comment": "$id should be URL where the schema is available.",
+    "description": "Nettskjema submission metadata",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "$schema",
+        "answers",
+        "metaData"
+    ],
+    "properties": {
+        "$schema": {
+            "description": "Schema this submission conforms to",
+            "type": "string"
+        },
+        "answers": {
+            "description": "Answers in the submission.",
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/answer"
+            }
+        },
+        "metaData": {
+            "description": "Metadata for the submission.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "submissionId",
+                "delivered",
+                "answerTimeSeconds",
+                "createdDate"
+            ],
+            "properties": {
+                "submissionId": {
+                    "description": "Unique identifier for this submission.",
+                    "type": "number"
+                },
+                "delivered": {
+                    "description": "Has the submission been delivered.",
+                    "type": "boolean"
+                },
+                "answerTimeSeconds": {
+                    "description": "How many seconds did it take to answer the form.",
+                    "type": "number"
+                },
+                "createdDate": {
+                    "description": "When was the submission created.",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "modifiedDate": {
+                    "description": "When was the submission last modified.",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "respondent": {
+                    "$ref": "#/$defs/respondent"
+                }
+            }
+        }
+    },
+    "$defs": {
+        "answer": {
+            "description": "An answer to a question.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "questionId",
+                "questionType",
+                "questionCodebookCode",
+                "textAnswer"
+            ],
+            "properties": {
+                "questionId": {
+                    "description": "Unique identifier for the question.",
+                    "type": "number"
+                },
+                "questionType": {
+                    "$ref": "QuestionType.json"
+                },
+                "questionCodebookCode": {
+                    "description": "What is the codebook code for this question.",
+                    "type": "string"
+                },
+                "textAnswer": {
+                    "description": "Textual representation of the answer.",
+                    "type": "string"
+                },
+                "externalQuestionId": {
+                    "description": "TODO",
+                    "$comment": "What is this?",
+                    "type": "string"
+                }
+            }
+        },
+        "respondent": {
+            "description": "Info about the respondent of the nettskjema.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "provider"
+            ],
+            "properties": {
+                "provider": {
+                    "description": "The identity provider.",
+                    "type": "string",
+                    "enum": [
+                        "dataporten",
+                        "idporten",
+                        "feide"
+                    ]
+                },
+                "sub": {
+                    "description": "OIDC sub",
+                    "type": "string"
+                },
+                "personal_identifier": {
+                    "description": "Personal identifier.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
