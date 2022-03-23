@@ -1,0 +1,137 @@
+{
+    "theme": "DEFAULT",
+    "title": "testttsddm2",
+    "formId": 901079,
+    "editors": [
+        {
+            "name": "Torjus H\u00e5kestad",
+            "type": "LOCAL",
+            "personId": 499758,
+            "username": "torjus@uio.no"
+        }
+    ],
+    "elements": [
+        {
+            "text": "tekstsvar",
+            "sequence": 1,
+            "elementId": 1363909,
+            "mandatory": false,
+            "published": false,
+            "horizontal": false,
+            "description": "<p>beskrivelse tekstsvar</p>\n\n<p></p>\n",
+            "elementType": "QUESTION",
+            "externalElementId": "tekstsvar_1",
+            "sendAdditionalRecipientEmail": false
+        },
+        {
+            "text": "radio",
+            "sequence": 2,
+            "elementId": 1363910,
+            "mandatory": false,
+            "published": false,
+            "horizontal": false,
+            "description": "<p>beskrivelse radio</p>\n\n<p></p>\n",
+            "elementType": "RADIO",
+            "answerOptions": [
+                {
+                    "text": "radio1",
+                    "correct": false,
+                    "sequence": 1,
+                    "preselected": true,
+                    "answerOptionId": 2006789,
+                    "externalAnswerOptionId": "1"
+                },
+                {
+                    "text": "radio2",
+                    "correct": false,
+                    "sequence": 2,
+                    "preselected": false,
+                    "answerOptionId": 2006790,
+                    "externalAnswerOptionId": "2"
+                },
+                {
+                    "text": "radio3",
+                    "correct": false,
+                    "sequence": 3,
+                    "preselected": false,
+                    "answerOptionId": 2006791,
+                    "externalAnswerOptionId": "3"
+                }
+            ],
+            "externalElementId": "radio_1",
+            "sendAdditionalRecipientEmail": false
+        },
+        {
+            "text": "dato",
+            "sequence": 3,
+            "elementId": 1363911,
+            "mandatory": false,
+            "published": false,
+            "dateFormat": "DATE",
+            "horizontal": false,
+            "description": "<p>beskrivelse dato</p>\n\n<p></p>\n",
+            "elementType": "DATE",
+            "externalElementId": "dato1",
+            "sendAdditionalRecipientEmail": false
+        },
+        {
+            "text": "Referanse-ID",
+            "sequence": 4,
+            "elementId": 1363912,
+            "mandatory": false,
+            "published": false,
+            "horizontal": false,
+            "description": "<p>beskrivelse referanse-id</p>\n\n<p></p>\n",
+            "elementType": "SUBMISSION_REFERENCE",
+            "externalElementId": "refid1",
+            "sendAdditionalRecipientEmail": false
+        },
+        {
+            "text": "skala",
+            "sequence": 5,
+            "elementId": 1363913,
+            "mandatory": true,
+            "published": false,
+            "horizontal": true,
+            "description": "<p>beskrivelse skala</p>\n\n<p></p>\n",
+            "elementType": "LINEAR_SCALE",
+            "maximumValue": 10,
+            "minimumValue": 0,
+            "linearScaleType": "ALL",
+            "externalElementId": "skala1",
+            "sendAdditionalRecipientEmail": false
+        }
+    ],
+    "createdBy": {
+        "name": "Torjus H\u00e5kestad",
+        "type": "LOCAL",
+        "personId": 499758,
+        "username": "torjus@uio.no"
+    },
+    "modifiedBy": {
+        "name": "Torjus H\u00e5kestad",
+        "type": "LOCAL",
+        "personId": 499758,
+        "username": "torjus@uio.no"
+    },
+    "createdDate": "2022-03-22T14:11:58.000+0100",
+    "languageCode": "nb",
+    "modifiedDate": "2022-03-22T14:14:34.000+0100",
+    "tsdConsentForm": false,
+    "tsdProjectName": "p11",
+    "respondentGroup": "ALL",
+    "clientPostponable": false,
+    "codebookActivated": true,
+    "deliveryDestination": "TSD",
+    "editorsContactEmail": "torjus@uio.no",
+    "collectsPersonalData": false,
+    "maxSubmissionsPerson": 1,
+    "shouldHideProgressBar": false,
+    "scoreResultDisplayType": "NONE",
+    "newDesignEnabledSetting": "ALWAYS",
+    "sendingReceiptToRespondent": false,
+    "shouldPreventDataManipulation": true,
+    "sensitivePersonalDataCollected": false,
+    "shouldGetRespondentInfoFromPerson": false,
+    "retainRespondentAccessAfterDelivery": false
+}

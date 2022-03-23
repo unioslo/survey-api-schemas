@@ -5,10 +5,10 @@
     "description": "Nettskjema question types",
     "type": "string",
     "enum": [
-        "textArea",
-        "checkBox",
-        "radioBox",
-        "number",
-        "matrix"
+        "QUESTION",
+        "RADIO",
+        "DATE",
+        "LINEAR_SCALE",
+        "SUBMISSION_REFERENCE"
     ]
 }

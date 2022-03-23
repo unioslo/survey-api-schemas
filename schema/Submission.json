@@ -29,7 +29,7 @@
             "required": [
                 "submissionId",
                 "delivered",
-                "answerTimeSeconds",
+                "answerTime",
                 "createdDate"
             ],
             "properties": {
@@ -41,7 +41,7 @@
                     "description": "Has the submission been delivered.",
                     "type": "boolean"
                 },
-                "answerTimeSeconds": {
+                "answerTime": {
                     "description": "How many seconds did it take to answer the form.",
                     "type": "number"
                 },
@@ -68,8 +68,7 @@
             "additionalProperties": false,
             "required": [
                 "questionId",
-                "questionType",
-                "questionCodebookCode",
+                "elementRef",
                 "textAnswer"
             ],
             "properties": {
@@ -77,12 +76,17 @@
                     "description": "Unique identifier for the question.",
                     "type": "number"
                 },
+                "elementRef": {
+                    "description": "ID linking this answer to an elment in form metadata.",
+                    "$comment": "Need some way of linking answers to the metadata from form.",
+                    "type": "number"
+                },
+                "externalElementId": {
+                    "description": "Value from codebook.",
+                    "type": "string"
+                },
                 "questionType": {
                     "$ref": "QuestionType.json"
-                },
-                "questionCodebookCode": {
-                    "description": "What is the codebook code for this question.",
-                    "type": "string"
                 },
                 "textAnswer": {
                     "description": "Textual representation of the answer.",
@@ -91,6 +95,45 @@
                 "externalQuestionId": {
                     "description": "TODO",
                     "$comment": "What is this?",
+                    "type": "string"
+                },
+                "answerOptions": {
+                    "description": "For questions with multiple choices.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/answerOption"
+                    }
+                }
+            }
+        },
+        "answerOption": {
+            "description": "Used for questions with multiple choices.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [],
+            "properties": {
+                "text": {
+                    "description": "Textual representation of the answer.",
+                    "type": "string"
+                },
+                "correct": {
+                    "description": "Was this the correct answer or not.",
+                    "type": "boolean"
+                },
+                "sequence": {
+                    "description": "Which number was this answer.",
+                    "type": "number"
+                },
+                "preselected": {
+                    "description": "Was this the preselected answer.",
+                    "type": "boolean"
+                },
+                "answerOptionId": {
+                    "description": "Unique identifier for this answer option.",
+                    "type": "number"
+                },
+                "externalAnswerOptionId": {
+                    "description": "Codebook value for this option.",
                     "type": "string"
                 }
             }

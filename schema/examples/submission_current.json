@@ -1,0 +1,40 @@
+{
+    "answers": [
+        {
+            "questionId": 1337464,
+            "textAnswer": "05.03.2022"
+        },
+        {
+            "questionId": 1337462,
+            "textAnswer": "2222"
+        },
+        {
+            "questionId": 1337463,
+            "answerOptions": [
+                {
+                    "text": "radio3",
+                    "correct": false,
+                    "sequence": 3,
+                    "preselected": false,
+                    "answerOptionId": 2006791,
+                    "externalAnswerOptionId": "3"
+                }
+            ]
+        },
+        {
+            "questionId": 1337465,
+            "textAnswer": "missing"
+        },
+        {
+            "questionId": 1337466,
+            "textAnswer": "10"
+        }
+    ],
+    "metaData": {
+        "delivered": true,
+        "answerTime": 7551,
+        "createdDate": "2022-03-22T00:00:00.000+0100",
+        "modifiedDate": "2022-03-22T00:00:00.000+0100",
+        "submissionId": 1927527
+    }
+}
