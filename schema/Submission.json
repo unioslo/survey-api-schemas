@@ -143,14 +143,15 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
-                "provider"
+                "provider",
+                "sub"
             ],
             "properties": {
                 "provider": {
                     "description": "The identity provider.",
                     "type": "string",
                     "enum": [
-                        "dataporten",
+                        "tsd",
                         "idporten",
                         "feide"
                     ]
@@ -160,7 +161,11 @@
                     "type": "string"
                 },
                 "personal_identifier": {
-                    "description": "Personal identifier.",
+                    "description": "National personal identifier.",
+                    "type": "string"
+                },
+                "user_name": {
+                    "description": "User name assigned to the respondent by their IdP.",
                     "type": "string"
                 }
             }
