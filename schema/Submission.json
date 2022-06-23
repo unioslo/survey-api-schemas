@@ -16,10 +16,10 @@
             "type": "string"
         },
         "answers": {
-            "description": "Answers in the submission.",
-            "type": "array",
-            "items": {
-                "$ref": "#/$defs/answer"
+            "description": "Answers in the submission with externalElementId as keys. Their order is defined by the 'elements' in the forms metadata for this skjema.",
+            "type": "object",
+            "propertyNames": {
+                "pattern": "^[A-Za-z0-9_]+"
             }
         },
         "metadata": {
@@ -51,15 +51,6 @@
         }
     },
     "$defs": {
-        "answer": {
-            "description": "An answer to a question.",
-            "type": "object",
-            "minProperties": 1,
-            "maxProperties": 1,
-            "propertyNames": {
-                "pattern": "^[A-Za-z0-9_]+"
-            }
-        },
         "respondent": {
             "description": "Info about the respondent of the nettskjema.",
             "type": "object",
