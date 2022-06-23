@@ -8,7 +8,7 @@
     "required": [
         "$schema",
         "answers",
-        "metaData"
+        "metadata"
     ],
     "properties": {
         "$schema": {
@@ -22,38 +22,27 @@
                 "$ref": "#/$defs/answer"
             }
         },
-        "metaData": {
+        "metadata": {
             "description": "Metadata for the submission.",
             "type": "object",
-            "additionalProperties": false,
             "required": [
-                "submissionId",
-                "delivered",
-                "answerTime",
-                "createdDate"
+                "created",
+                "answer_time",
+                "submission_id"
             ],
             "properties": {
-                "submissionId": {
-                    "description": "Unique identifier for this submission.",
-                    "type": "number"
-                },
-                "delivered": {
-                    "description": "Has the submission been delivered.",
-                    "type": "boolean"
-                },
-                "answerTime": {
-                    "description": "How many seconds did it take to answer the form.",
-                    "type": "number"
-                },
-                "createdDate": {
+                "created": {
                     "description": "When was the submission created.",
                     "type": "string",
                     "format": "date-time"
                 },
-                "modifiedDate": {
-                    "description": "When was the submission last modified.",
-                    "type": "string",
-                    "format": "date-time"
+                "answer_time": {
+                    "description": "How many seconds did it take to answer the form.",
+                    "type": "number"
+                },
+                "submission_id": {
+                    "description": "Unique identifier for this submission.",
+                    "type": "number"
                 },
                 "respondent": {
                     "$ref": "#/$defs/respondent"
@@ -65,77 +54,10 @@
         "answer": {
             "description": "An answer to a question.",
             "type": "object",
-            "additionalProperties": false,
-            "required": [
-                "questionId",
-                "elementRef",
-                "textAnswer"
-            ],
-            "properties": {
-                "questionId": {
-                    "description": "Unique identifier for the question.",
-                    "type": "number"
-                },
-                "elementRef": {
-                    "description": "ID linking this answer to an elment in form metadata.",
-                    "$comment": "Need some way of linking answers to the metadata from form.",
-                    "type": "number"
-                },
-                "externalElementId": {
-                    "description": "Value from codebook.",
-                    "type": "string"
-                },
-                "questionType": {
-                    "$ref": "QuestionType.json"
-                },
-                "textAnswer": {
-                    "description": "Textual representation of the answer.",
-                    "type": "string"
-                },
-                "externalQuestionId": {
-                    "description": "TODO",
-                    "$comment": "What is this?",
-                    "type": "string"
-                },
-                "answerOptions": {
-                    "description": "For questions with multiple choices.",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/$defs/answerOption"
-                    }
-                }
-            }
-        },
-        "answerOption": {
-            "description": "Used for questions with multiple choices.",
-            "type": "object",
-            "additionalProperties": false,
-            "required": [],
-            "properties": {
-                "text": {
-                    "description": "Textual representation of the answer.",
-                    "type": "string"
-                },
-                "correct": {
-                    "description": "Was this the correct answer or not.",
-                    "type": "boolean"
-                },
-                "sequence": {
-                    "description": "Which number was this answer.",
-                    "type": "number"
-                },
-                "preselected": {
-                    "description": "Was this the preselected answer.",
-                    "type": "boolean"
-                },
-                "answerOptionId": {
-                    "description": "Unique identifier for this answer option.",
-                    "type": "number"
-                },
-                "externalAnswerOptionId": {
-                    "description": "Codebook value for this option.",
-                    "type": "string"
-                }
+            "minProperties": 1,
+            "maxProperties": 1,
+            "propertyNames": {
+                "pattern": "^[A-Za-z0-9_]+"
             }
         },
         "respondent": {
