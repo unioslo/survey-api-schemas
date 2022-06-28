@@ -24,27 +24,7 @@
             "patternProperties": {
                 "^[A-Za-z0-9_]+": {
                     "description": "A single answer with externalElementId as keys.",
-                    "type": "object",
-                    "oneOf" : [
-                        {
-                            "description": "The value, when oo answer was given.",
-                            "type": "null"
-                        },
-                        {
-                            "description": "Value of a single answer.",
-                            "type": "object",
-                            "required": [
-                                "text"
-                            ],
-                            "properties": {
-                                "text": {
-                                    "description": "The answer represented as text. To be used for CSVs.",
-                                    "type": "string"
-                                }
-                            },
-                            "additionalProperties": true
-                        }
-                    ]
+                    "type": ["null", "number", "string", "boolean", "object"]
                 }
             }
         },
