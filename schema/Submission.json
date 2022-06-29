@@ -20,6 +20,12 @@
             "type": "object",
             "propertyNames": {
                 "pattern": "^[A-Za-z0-9_]+"
+            },
+            "patternProperties": {
+                "^[A-Za-z0-9_]+": {
+                    "description": "A single answer with externalElementId as keys.",
+                    "type": ["null", "number", "string", "boolean", "object"]
+                }
             }
         },
         "metadata": {
