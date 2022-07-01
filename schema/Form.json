@@ -262,10 +262,7 @@
                     "description": "Type of date collected",
                     "$comment": "What are possible values?",
                     "type": "string",
-                    "enum": [
-                        "DATE",
-                        "TIME"
-                    ]
+                    "enum": ["DATE", "TIME", "DATE_TIME"]
                 },
                 "horizontal": {
                     "description": "?",
@@ -276,9 +273,20 @@
                     "description": "Description of the element.",
                     "type": "string"
                 },
-                "elementType": {
-                    "$ref": "QuestionType.json"
-                },
+                "elementType": [
+                    "QUESTION",
+                    "RADIO",
+                    "CHECKBOX",
+                    "SELECT",
+                    "LINEAR_SCALE",
+                    "MATRIX_RADIO",
+                    "DATE",
+                    "NUMBER",
+                    "NATIONAL_ID_NUMBER",
+                    "EMAIL",
+                    "PHONE",
+                    "ATTACHMENT"
+                ],
                 "maximumValue": {
                     "description": "Maximum value of answer.",
                     "type": "number"
