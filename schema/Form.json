@@ -285,7 +285,8 @@
                     "NATIONAL_ID_NUMBER",
                     "EMAIL",
                     "PHONE",
-                    "ATTACHMENT"
+                    "ATTACHMENT",
+                    "SUBMISSION_REFERENCE"
                 ],
                 "maximumValue": {
                     "description": "Maximum value of answer.",
