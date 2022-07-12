@@ -13,13 +13,20 @@
         "answers": {
             "description": "Answers in the submission with externalElementId as keys. Their order is defined by the 'elements' in the forms metadata for this skjema.",
             "type": "object",
+            "additionalProperties": false,
             "propertyNames": {
                 "pattern": "^[A-Za-z0-9_]+"
             },
             "patternProperties": {
                 "^[A-Za-z0-9_]+": {
                     "description": "A single answer with externalElementId as keys.",
-                    "type": ["null", "number", "string", "boolean", "object"]
+                    "oneOf": [
+                        {"type": "string" },
+                        {"type": "null" },
+                        {"type": "number" },
+                        {"$ref": "#/$defs/attachmentAnswer"},
+                        {"$ref": "#/$defs/checkboxAnswer"}
+                    ]
                 }
             }
         },
@@ -31,6 +38,7 @@
                 "answer_time",
                 "submission_id"
             ],
+            "additionalProperties": false,
             "properties": {
                 "created": {
                     "description": "When was the submission created.",
@@ -44,6 +52,9 @@
                     "description": "Unique identifier for this submission.",
                     "type": "number"
                 },
+                "number_of_attachments": {
+                    "type": "number"
+                },
                 "respondent": {
                     "$ref": "#/$defs/respondent"
                 }
@@ -51,6 +62,39 @@
         }
     },
     "$defs": {
+        "attachmentAnswer": {
+            "description": "File attachment.",
+            "type": "object",
+            "required": [
+                "original_filename",
+                "file_id"
+            ],
+            "properties": {
+                "original_filename": {
+                    "description": "The filename used then the attachment was submitted.",
+                    "type": "string"
+                },
+                "file_id": {
+                    "description": "A unique identifier to retrieve the attchment.",
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "checkboxAnswer": {
+            "description": "Checkbox answers.",
+            "type": "object",
+            "propertyNames": {
+                "pattern": "^[A-Za-z0-9_]+"
+            },
+            "additionalProperties": false,
+            "patternProperties": {
+                "^[A-Za-z0-9_]+": {
+                    "description": "A single checkbox answer with externalElementId as keys.",
+                    "type": "boolean"
+                }
+            }
+        },
         "respondent": {
             "description": "Info about the respondent of the nettskjema.",
             "type": "object",
