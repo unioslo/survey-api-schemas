@@ -1,0 +1,87 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "Submission.json",
+    "$comment": "$id should be URL where the schema is available.",
+    "description": "Nettskjema submission metadata",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "answers",
+        "metadata"
+    ],
+    "properties": {
+        "answers": {
+            "description": "Answers in the submission with externalElementId as keys. Their order is defined by the 'elements' in the forms metadata for this skjema.",
+            "type": "object",
+            "propertyNames": {
+                "pattern": "^[A-Za-z0-9_]+"
+            },
+            "patternProperties": {
+                "^[A-Za-z0-9_]+": {
+                    "description": "A single answer with externalElementId as keys.",
+                    "type": ["null", "number", "string", "boolean", "object"]
+                }
+            }
+        },
+        "metadata": {
+            "description": "Metadata for the submission.",
+            "type": "object",
+            "required": [
+                "created",
+                "answer_time",
+                "submission_id"
+            ],
+            "properties": {
+                "created": {
+                    "description": "When was the submission created.",
+                    "type": "string"
+                },
+                "answer_time": {
+                    "description": "How many seconds did it take to answer the form.",
+                    "type": "number"
+                },
+                "submission_id": {
+                    "description": "Unique identifier for this submission.",
+                    "type": "number"
+                },
+                "respondent": {
+                    "$ref": "#/$defs/respondent"
+                }
+            }
+        }
+    },
+    "$defs": {
+        "respondent": {
+            "description": "Info about the respondent of the nettskjema.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "provider",
+                "sub"
+            ],
+            "properties": {
+                "provider": {
+                    "description": "The identity provider.",
+                    "type": "string",
+                    "enum": [
+                        "tsd",
+                        "idporten",
+                        "feide"
+                    ]
+                },
+                "sub": {
+                    "description": "OIDC sub",
+                    "type": "string"
+                },
+                "personal_identifier": {
+                    "description": "National personal identifier.",
+                    "type": "string"
+                },
+                "user_name": {
+                    "description": "User name assigned to the respondent by their IdP.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
