@@ -1,0 +1,478 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "Form.json",
+    "$comment": "$id should be URL where the schema is available.",
+    "description": "Nettskjema form metadata",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "title",
+        "formId",
+        "editors",
+        "elements",
+        "createdBy",
+        "openFrom",
+        "modifiedBy",
+        "createdDate",
+        "languageCode",
+        "modifiedDate",
+        "tsdProjectName",
+        "respondentGroup",
+        "collectsPersonalData",
+        "sensitivePersonalDataCollected"
+    ],
+    "properties": {
+        "$schema": {
+            "description": "Which schema conforms to.",
+            "type": "string"
+        },
+        "theme": {
+            "description": "Which theme was used when collected.",
+            "type": "string"
+        },
+        "title": {
+            "description": "Title of the skjema.",
+            "type": "string"
+        },
+        "formId": {
+            "description": "Unique identifier for the skjema.",
+            "type": "number"
+        },
+        "datasets": {
+            "description": "What datasets should be generated for this form.",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "csv",
+                    "spss",
+                    "json"
+                ]
+            }
+        },
+        "permissions": {
+            "description": "Permissions required for dataset and APIs",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "datasets",
+                "api"
+            ],
+            "properties": {
+                "datasets": {
+                    "description": "What group should be required to view generated datasets.",
+                    "type": "string"
+                },
+                "api": {
+                    "description": "Which groups should have API access to the form.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "editors": {
+            "description": "Editors of the skjema.",
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/editor"
+            }
+        },
+        "elements": {
+            "description": "Elements in this skjema.",
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/element"
+            }
+        },
+        "openFrom":  {
+            "description": "??? fill me in! FK",
+            "type": "string"
+        },
+        "createdBy": {
+            "$ref": "#/$defs/editor"
+        },
+        "modifiedBy": {
+            "$ref": "#/$defs/editor"
+        },
+        "createdDate": {
+            "description": "When this skjema was created.",
+            "type": "string"
+        },
+        "languageCode": {
+            "description": "Language code for the skjema.",
+            "type": "string"
+        },
+        "modifiedDate": {
+            "description": "When was the form last modified.",
+            "type": "string"
+        },
+        "tsdConsentForm": {
+            "description": "Is this a TSD Consent form",
+            "type": "boolean"
+        },
+        "tsdProjectName": {
+            "description": "Which TSD project does the form belong to.",
+            "type": "string"
+        },
+        "respondentGroup": {
+            "description": "?",
+            "$comment": "What does this mean? and what are the possible values?",
+            "type": "string"
+        },
+        "clientPostponable": {
+            "description": "Can the client postpone the answer.",
+            "type": "boolean"
+        },
+        "codebookActivated": {
+            "description": "Has the codebook been activated.",
+            "type": "boolean"
+        },
+        "deliveryDestination": {
+            "description": "Where the form will be delivered.",
+            "$comment": "What other values are possible?",
+            "type": "string",
+            "enum": [
+                "TSD"
+            ]
+        },
+        "editorsContactEmail": {
+            "description": "E-mail of the editor.",
+            "$comment": "Can this be an array if multiple editors, or is it just the initial one?",
+            "type": "string"
+        },
+        "collectsPersonalData": {
+            "description": "Does the form collect personal data.",
+            "type": "boolean"
+        },
+        "maxSubmissionsPerson": {
+            "description": "How many times can a person submit the same form.",
+            "type": "number"
+        },
+        "shouldHideProgressBar": {
+            "description": "?",
+            "$comment": "What is this?",
+            "type": "boolean"
+        },
+        "scoreResultDisplayType": {
+            "description": "What type of results should be displayed.",
+            "$comment": "What are possible values?",
+            "type": "string",
+            "enum": [
+                "NONE"
+            ]
+        },
+        "newDesignEnabledSetting": {
+            "description": "Has new design been enabled for form.",
+            "$comment": "What are possible values?",
+            "type": "string",
+            "enum": [
+                "ALWAYS"
+            ]
+        },
+        "sendingReceiptToRespondent": {
+            "description": "Will receipts be sent to respondendts.",
+            "type": "boolean"
+        },
+        "shouldPreventDataManipulation": {
+            "description": "?",
+            "$comment": "What is this?",
+            "type": "boolean"
+        },
+        "sensitivePersonalDataCollected": {
+            "description": "Has sensitive data been collected.",
+            "type": "boolean"
+        },
+        "shouldGetRespondentInfoFromPerson": {
+            "description": "?",
+            "$comment": "What does this mean?",
+            "type": "boolean"
+        },
+        "retainRespondentAccessAfterDelivery": {
+            "description": "Should the respondent have access to their submission after submitting.",
+            "type": "boolean"
+        }
+    },
+    "$defs": {
+        "editor": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "name",
+                "personId"
+            ],
+            "properties": {
+                "name": {
+                    "description": "Name of the editor.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of editor.",
+                    "$comment": "TODO: What is this?",
+                    "type": "string"
+                },
+                "personId": {
+                    "description": "Unique identifier for this person.",
+                    "type": "number"
+                },
+                "username": {
+                    "description": "Username of the editor.",
+                    "type": "string"
+                }
+            }
+        },
+        "element": {
+          "description": "Elements of the skjema.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["sequence", "mandatory"],
+          "properties": {
+            "text": {
+              "description": "Question text.",
+              "type": "string"
+            },
+            "title": {
+              "description": "Title (used for parent elements).",
+              "type": "string"
+            },
+            "sequence": {
+              "description": "Which question number is this.",
+              "type": "number"
+            },
+            "elementId": {
+              "description": "Unique identifier for this element.",
+              "type": "number"
+            },
+            "mandatory": {
+              "description": "Is this element mandatory.",
+              "type": "boolean"
+            },
+            "published": {
+              "description": "Has this element been published?",
+              "$comment": "What exactly does published mean?",
+              "type": "boolean"
+            },
+            "dateFormat": {
+              "$ref": "#/$defs/dateFormat"
+            },
+            "horizontal": {
+              "description": "?",
+              "$comment": "What does this signify?",
+              "type": "boolean"
+            },
+            "description": {
+              "description": "Description of the element.",
+              "type": "string"
+            },
+            "elementType": {
+              "$ref": "#/$defs/elementType"
+            },
+            "maximumValue": {
+              "description": "Maximum value of answer.",
+              "type": "number"
+            },
+            "minimumValue": {
+              "description": "Minimu, value of answer.",
+              "type": "number"
+            },
+            "linearScaleType": {
+              "description": "What kind of linear scale is this.",
+              "$comment": "What are valid values?",
+              "type": "string",
+              "enum": ["ALL"]
+            },
+            "answerOptions": {
+              "description": "Answer options.",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/answerOption"
+              }
+            },
+            "externalElementId": {
+              "description": "Codebook key for this element",
+              "$comment": "Should this be renamed to better reflect that it is from the codebook?",
+              "type": "string"
+            },
+            "questionId": {
+              "description": "??? fill me in! (FK)",
+              "type": "number"
+            },
+            "sendAdditionalRecipientEmail": {
+              "description": "Should additional emails be sent to the recipient?",
+              "$comment": "How does this work? Is it needed for each question?",
+              "type": "boolean"
+            },
+            "maxSelectedAnswerOptions": {
+              "description": "Maximum number of answers.",
+              "type": "number"
+            },
+            "subElements": {
+              "type": "array",
+              "items": [{ "$ref": "#/$defs/element" }]
+            },
+            "nationalIdNumberType": {
+              "description": "Enum specifying the ID format",
+              "type": "string"
+            },
+            "nationalIdNumberOfDigits": {
+              "type": "number"
+            },
+            "nationalIdNumberOfLetters": {
+              "type": "number"
+            },
+            "repeatedNationalIdRequired": {
+              "type": "boolean"
+            },
+            "rangeMarksShown": {
+              "type": "boolean"
+            },
+            "numberOfDecimals": {
+              "type": "number"
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "required": ["elementType"]
+              },
+              "then": {
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": { "elementType": { "const": "QUESTION" } }
+                    },
+                    "then": {
+                      "required": [
+                        "text",
+                        "sequence",
+                        "mandatory",
+                        "externalElementId"
+                      ]
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": { "elementType": { "const": "RADIO" } }
+                    },
+                    "then": {
+                      "required": [
+                        "text",
+                        "sequence",
+                        "mandatory",
+                        "externalElementId",
+                        "answerOptions"
+                      ]
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": { "elementType": { "const": "CHECKBOX" } }
+                    },
+                    "then": {
+                      "required": [
+                        "text",
+                        "sequence",
+                        "mandatory",
+                        "externalElementId",
+                        "answerOptions",
+                        "maxSelectedAnswerOptions"
+                      ]
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "elementType": { "const": "MATRIX_CHECKBOX" }
+                      }
+                    },
+                    "then": {
+                      "required": [
+                        "title",
+                        "sequence",
+                        "mandatory",
+                        "subElements",
+                        "answerOptions",
+                        "maxSelectedAnswerOptions"
+                      ]
+                    }
+                  }
+                ]
+              },
+              "else": {
+                "required": [
+                  "text",
+                  "sequence",
+                  "mandatory",
+                  "externalElementId"
+                ]
+              }
+            }
+          ]
+        },
+        "answerOption": {
+            "description": "Contained when question has multiple possible answers.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [],
+            "properties": {
+                "text": {
+                    "description": "Text value for the answer option.",
+                    "type": "string"
+                },
+                "correct": {
+                    "description": "Was the answer correct (if applicable)",
+                    "type": "boolean"
+                },
+                "sequence": {
+                    "description": "Which answer number is this.",
+                    "type": "number"
+                },
+                "preselected": {
+                    "description": "Was this option preselected.",
+                    "type": "boolean"
+                },
+                "answerOptionId": {
+                    "description": "Unique identifier for this answer option.",
+                    "type": "number"
+                },
+                "externalAnswerOptionId": {
+                    "description": "Codebook value for this answer option.",
+                    "type": "string"
+                }
+            }
+        },
+        "elementType": {
+            "description": "Nettskjema question types.",
+            "type": "string",
+            "enum": [
+                "QUESTION",
+                "RADIO",
+                "CHECKBOX",
+                "SELECT",
+                "LINEAR_SCALE",
+                "MATRIX_RADIO",
+                "MATRIX_CHECKBOX",
+                "DATE",
+                "NUMBER",
+                "NATIONAL_ID_NUMBER",
+                "EMAIL",
+                "PHONE",
+                "ATTACHMENT",
+                "SUBMISSION_REFERENCE",
+                "USERNAME",
+                "NAME"
+            ]
+        },
+        "dateFormat": {
+            "description": "Type of date collected",
+            "$comment": "What are possible values?",
+            "type": "string",
+            "enum": [
+                "DATE",
+                "TIME",
+                "DATE_TIME"
+            ]
+        }
+    }
+}
