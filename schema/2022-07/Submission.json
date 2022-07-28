@@ -7,7 +7,8 @@
     "additionalProperties": false,
     "required": [
         "answers",
-        "metadata"
+        "metadata",
+        "version"
     ],
     "properties": {
         "answers": {
