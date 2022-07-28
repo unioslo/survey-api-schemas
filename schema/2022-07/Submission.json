@@ -25,7 +25,10 @@
                         {"type": "null" },
                         {"type": "number" },
                         {"$ref": "#/$defs/attachmentAnswer"},
-                        {"$ref": "#/$defs/checkboxAnswer"}
+                        {"$ref": "#/$defs/checkboxAnswer"},
+                        { "$ref": "#/$defs/matrixCheckboxAnswer" },
+                        { "$ref": "#/$defs/matrixRadioMatrixAnswer" }
+
                     ]
                 }
             }
@@ -92,6 +95,32 @@
                 "^[A-Za-z0-9_]+": {
                     "description": "A single checkbox answer with externalElementId as keys.",
                     "type": "boolean"
+                }
+            }
+        },
+        "checkboxMatrixAnswer": {
+            "description": "Matrix with checkbox answers.",
+            "type": "object",
+            "propertyNames": {
+                "pattern": "^[A-Za-z0-9_]+"
+            },
+            "additionalProperties": false,
+            "patternProperties": {
+                "^[A-Za-z0-9_]+": {
+                    "$ref": "#/$defs/checkboxAnswer"
+                }
+            }
+        },
+        "radioMatrixAnswer": {
+            "description": "Matrix with radio answers.",
+            "type": "object",
+            "propertyNames": {
+                "pattern": "^[A-Za-z0-9_]+"
+            },
+            "additionalProperties": false,
+            "patternProperties": {
+            "^[A-Za-z0-9_]+": {
+                    "oneOf": [{ "type": "string" }, { "type": "null" }]
                 }
             }
         },
