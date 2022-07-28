@@ -102,7 +102,7 @@
                 }
             }
         },
-        "checkboxMatrixAnswer": {
+        "matrixCheckboxAnswer": {
             "description": "Matrix with checkbox answers.",
             "type": "object",
             "propertyNames": {
@@ -115,7 +115,7 @@
                 }
             }
         },
-        "radioMatrixAnswer": {
+        "matrixRadioMatrixAnswer": {
             "description": "Matrix with radio answers.",
             "type": "object",
             "propertyNames": {
