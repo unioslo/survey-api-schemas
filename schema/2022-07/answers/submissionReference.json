@@ -1,0 +1,6 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "submissionReference.json",
+    "description": "Nettskjema form answer for type SUBMISSION_REFERENCE",
+    "type": ["string", "null"]
+}

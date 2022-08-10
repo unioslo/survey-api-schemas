@@ -22,21 +22,22 @@
                 "^[A-Za-z0-9_]+": {
                     "description": "A single answer with externalElementId as keys.",
                     "oneOf": [
-                        {"$ref": "#/$defs/questionAnswer"},
-                        {"$ref": "#/$defs/radioAnswer"},
-                        {"$ref": "#/$defs/checkboxAnswer"},
-                        {"$ref": "#/$defs/selectAnswer"},
-                        {"$ref": "#/$defs/linearScaleAnswer"},
-                        {"$ref": "#/$defs/matrixRadioMatrixAnswer" },
-                        {"$ref": "#/$defs/matrixCheckboxAnswer" },
-                        {"$ref": "#/$defs/dateAnswer"},
-                        {"$ref": "#/$defs/numberAnswer"},
-                        {"$ref": "#/$defs/nationalIdAnswer"},
-                        {"$ref": "#/$defs/emailAnswer"},
-                        {"$ref": "#/$defs/phoneAnswer"},
-                        {"$ref": "#/$defs/attachmentAnswer"},
-                        {"$ref": "#/$defs/usernameAnswer"},
-                        {"$ref": "#/$defs/nameAnswer"}
+                        {"$ref": "answers/attachment.json"},
+                        {"$ref": "answers/checkbox.json"},
+                        {"$ref": "answers/date.json"},
+                        {"$ref": "answers/email.json"},
+                        {"$ref": "answers/linearScale.json"},
+                        {"$ref": "answers/matrixCheckbox.json"},
+                        {"$ref": "answers/matrixRadio.json"},
+                        {"$ref": "answers/name.json"},
+                        {"$ref": "answers/nationalId.json"},
+                        {"$ref": "answers/number.json"},
+                        {"$ref": "answers/phone.json"},
+                        {"$ref": "answers/question.json"},
+                        {"$ref": "answers/radio.json"},
+                        {"$ref": "answers/select.json"},
+                        {"$ref": "answers/submissionReference.json"},
+                        {"$ref": "answers/username.json"}
                     ]
                 }
             }
@@ -77,113 +78,6 @@
         }
     },
     "$defs": {
-        "questionAnswer": {
-            "description": "Text answer.",
-            "type": ["string", null]
-        },
-        "radioAnswer": {
-            "description": "Radio button answer.",
-            "type": ["string", null]
-        },
-        "checkboxAnswer": {
-            "description": "Checkbox answers.",
-            "type": "object",
-            "propertyNames": {
-                "pattern": "^[A-Za-z0-9_]+"
-            },
-            "additionalProperties": false,
-            "patternProperties": {
-                "^[A-Za-z0-9_]+": {
-                    "description": "A single checkbox answer with externalElementId as keys.",
-                    "type": "boolean"
-                }
-            }
-        },
-        "selectAnswer": {
-            "description": "Dropdown answer.",
-            "type": ["string", null]
-        },
-        "linearScaleAnswer": {
-            "description": "Linear scale answer.",
-            "type": ["number", null]
-        },
-        "matrixRadioMatrixAnswer": {
-            "description": "Matrix with radio answers.",
-            "type": "object",
-            "propertyNames": {
-                "pattern": "^[A-Za-z0-9_]+"
-            },
-            "additionalProperties": false,
-            "patternProperties": {
-            "^[A-Za-z0-9_]+": {
-                    "oneOf": [{ "type": "string" }, { "type": "null" }]
-                }
-            }
-        },
-        "matrixCheckboxAnswer": {
-            "description": "Matrix with checkbox answers.",
-            "type": "object",
-            "propertyNames": {
-                "pattern": "^[A-Za-z0-9_]+"
-            },
-            "additionalProperties": false,
-            "patternProperties": {
-                "^[A-Za-z0-9_]+": {
-                    "$ref": "#/$defs/checkboxAnswer"
-                }
-            }
-        },
-        "dateAnswer": {
-            "description": "Date answer (date, time, date-time in ISO format).",
-            "type": ["string", null]
-        },
-        "numberAnswer": {
-            "description": "Numeric answer.",
-            "type": ["number", null]
-        },
-        "nationalIdAnswer": {
-            "description": "National ID answer.",
-            "type": ["string", null]
-        },
-        "emailAnswer": {
-            "description": "Email answer.",
-            "type": ["string", null]
-        },
-        "phoneAnswer": {
-            "description": "Phone number answer.",
-            "type": ["string", null]
-        },
-        "attachmentAnswer": {
-            "description": "File attachment.",
-            "type": "object",
-            "required": [
-                "original_filename",
-                "file_id"
-            ],
-            "properties": {
-                "original_filename": {
-                    "description": "The filename used then the attachment was submitted.",
-                    "type": "string"
-                },
-                "file_id": {
-                    "description": "A unique identifier to retrieve the attchment.",
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
-        },
-        "submissionReferenceAnswer": {
-            "description": "Submission reference answer.",
-            "type": ["string", null]
-        },
-        "usernameAnswer": {
-            "description": "User name answer.",
-            "type": ["string", null]
-        },
-        "nameAnswer": {
-            "description": "Name answer.",
-            "type": ["string", null]
-        },
         "respondent": {
             "description": "Info about the respondent of the nettskjema.",
             "type": "object",
