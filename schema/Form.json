@@ -274,19 +274,22 @@
                     "type": "string"
                 },
                 "elementType": [
+                    "ATTACHMENT",
+                    "CHECKBOX",
+                    "DATE",
+                    "EMAIL",
+                    "LINEAR_SCALE",
+                    "MATRIX_CHECKBOX",
+                    "MATRIX_RADIO",
+                    "NAME",
+                    "NATIONAL_ID_NUMBER",
+                    "NUMBER",
+                    "PHONE",
                     "QUESTION",
                     "RADIO",
-                    "CHECKBOX",
                     "SELECT",
-                    "LINEAR_SCALE",
-                    "MATRIX_RADIO",
-                    "DATE",
-                    "NUMBER",
-                    "NATIONAL_ID_NUMBER",
-                    "EMAIL",
-                    "PHONE",
-                    "ATTACHMENT",
-                    "SUBMISSION_REFERENCE"
+                    "SUBMISSION_REFERENCE",
+                    "USERNAME"
                 ],
                 "maximumValue": {
                     "description": "Maximum value of answer.",
