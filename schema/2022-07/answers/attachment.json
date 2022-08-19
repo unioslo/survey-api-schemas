@@ -2,5 +2,30 @@
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "$id": "attachment.json",
     "description": "Nettskjema form answer for type ATTACHMENT",
-    "type": ["string", "null"]
+    "oneOf": [
+        {"type": "null"},
+        {"$ref": "#/$defs/attachmentInternal"}
+    ],
+    "$defs": {
+        "attachmentInternal": {
+            "description": "Type for non-null ATTACHMENT",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "original_filename",
+                "file_id"
+            ],
+            "properties": {
+                "original_filename": {
+                    "description": "The filename used then the attachment was submitted.",
+                    "type": "string"
+                },
+                "file_id": {
+                    "description": "A unique identifier to retrieve the attachment.",
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "additionalProperties": false
 }
