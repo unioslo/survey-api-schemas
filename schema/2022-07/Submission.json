@@ -7,7 +7,8 @@
     "additionalProperties": false,
     "required": [
         "answers",
-        "metadata"
+        "metadata",
+        "version"
     ],
     "properties": {
         "answers": {
@@ -21,14 +22,22 @@
                 "^[A-Za-z0-9_]+": {
                     "description": "A single answer with externalElementId as keys.",
                     "oneOf": [
-                        {"type": "string" },
-                        {"type": "null" },
-                        {"type": "number" },
-                        {"$ref": "#/$defs/attachmentAnswer"},
-                        {"$ref": "#/$defs/checkboxAnswer"},
-                        { "$ref": "#/$defs/matrixCheckboxAnswer" },
-                        { "$ref": "#/$defs/matrixRadioMatrixAnswer" }
-
+                        {"$ref": "answers/attachment.json"},
+                        {"$ref": "answers/checkbox.json"},
+                        {"$ref": "answers/date.json"},
+                        {"$ref": "answers/email.json"},
+                        {"$ref": "answers/linearScale.json"},
+                        {"$ref": "answers/matrixCheckbox.json"},
+                        {"$ref": "answers/matrixRadio.json"},
+                        {"$ref": "answers/name.json"},
+                        {"$ref": "answers/nationalId.json"},
+                        {"$ref": "answers/number.json"},
+                        {"$ref": "answers/phone.json"},
+                        {"$ref": "answers/question.json"},
+                        {"$ref": "answers/radio.json"},
+                        {"$ref": "answers/select.json"},
+                        {"$ref": "answers/submissionReference.json"},
+                        {"$ref": "answers/username.json"}
                     ]
                 }
             }
@@ -62,68 +71,13 @@
                     "$ref": "#/$defs/respondent"
                 }
             }
+        },
+        "version": {
+            "description": "An identifier which format is used. Can be used to find correct version of this schema.",
+            "type": "string"
         }
     },
     "$defs": {
-        "attachmentAnswer": {
-            "description": "File attachment.",
-            "type": "object",
-            "required": [
-                "original_filename",
-                "file_id"
-            ],
-            "properties": {
-                "original_filename": {
-                    "description": "The filename used then the attachment was submitted.",
-                    "type": "string"
-                },
-                "file_id": {
-                    "description": "A unique identifier to retrieve the attchment.",
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
-        },
-        "checkboxAnswer": {
-            "description": "Checkbox answers.",
-            "type": "object",
-            "propertyNames": {
-                "pattern": "^[A-Za-z0-9_]+"
-            },
-            "additionalProperties": false,
-            "patternProperties": {
-                "^[A-Za-z0-9_]+": {
-                    "description": "A single checkbox answer with externalElementId as keys.",
-                    "type": "boolean"
-                }
-            }
-        },
-        "checkboxMatrixAnswer": {
-            "description": "Matrix with checkbox answers.",
-            "type": "object",
-            "propertyNames": {
-                "pattern": "^[A-Za-z0-9_]+"
-            },
-            "additionalProperties": false,
-            "patternProperties": {
-                "^[A-Za-z0-9_]+": {
-                    "$ref": "#/$defs/checkboxAnswer"
-                }
-            }
-        },
-        "radioMatrixAnswer": {
-            "description": "Matrix with radio answers.",
-            "type": "object",
-            "propertyNames": {
-                "pattern": "^[A-Za-z0-9_]+"
-            },
-            "additionalProperties": false,
-            "patternProperties": {
-            "^[A-Za-z0-9_]+": {
-                    "oneOf": [{ "type": "string" }, { "type": "null" }]
-                }
-            }
-        },
         "respondent": {
             "description": "Info about the respondent of the nettskjema.",
             "type": "object",

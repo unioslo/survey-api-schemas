@@ -1,0 +1,352 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "Submission.json",
+  "$comment": "$id should be URL where the schema is available.",
+  "description": "Nettskjema submission metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "answers",
+    "metadata",
+    "version"
+  ],
+  "properties": {
+    "answers": {
+      "description": "Answers in the submission with externalElementId as keys. Their order is defined by the 'elements' in the forms metadata for this skjema.",
+      "type": "object",
+      "additionalProperties": false,
+      "propertyNames": {
+        "pattern": "^[A-Za-z0-9_]+"
+      },
+      "patternProperties": {
+        "^[A-Za-z0-9_]+": {
+          "description": "A single answer with externalElementId as keys.",
+          "oneOf": [
+            {
+              "$schema": "https://json-schema.org/draft/2019-09/schema",
+              "$id": "attachment.json",
+              "description": "Nettskjema form answer for type ATTACHMENT",
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "description": "Type for non-null ATTACHMENT",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "original_filename",
+                    "file_id"
+                  ],
+                  "properties": {
+                    "original_filename": {
+                      "description": "The filename used then the attachment was submitted.",
+                      "type": "string"
+                    },
+                    "file_id": {
+                      "description": "A unique identifier to retrieve the attachment.",
+                      "type": "string"
+                    }
+                  }
+                }
+              ],
+              "$defs": {
+                "attachmentInternal": {
+                  "description": "Type for non-null ATTACHMENT",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "original_filename",
+                    "file_id"
+                  ],
+                  "properties": {
+                    "original_filename": {
+                      "description": "The filename used then the attachment was submitted.",
+                      "type": "string"
+                    },
+                    "file_id": {
+                      "description": "A unique identifier to retrieve the attachment.",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "$schema": "https://json-schema.org/draft/2019-09/schema",
+              "$id": "checkbox.json",
+              "description": "Nettskjema form answer for type CHECKBOX",
+              "type": "object",
+              "propertyNames": {
+                "pattern": "^[A-Za-z0-9_]+"
+              },
+              "additionalProperties": false,
+              "patternProperties": {
+                "^[A-Za-z0-9_]+": {
+                  "description": "A single checkbox answer with externalElementId as keys.",
+                  "type": "boolean"
+                }
+              }
+            },
+            {
+              "$schema": "https://json-schema.org/draft/2019-09/schema",
+              "$id": "Question.json",
+              "description": "Nettskjema form answer for type DATE",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "$schema": "https://json-schema.org/draft/2019-09/schema",
+              "$id": "enail.json",
+              "description": "Nettskjema form answer for type EMAIL",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "$schema": "https://json-schema.org/draft/2019-09/schema",
+              "$id": "linearScale.json",
+              "description": "Nettskjema form answer for type LINEAR_SCALE",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            {
+              "$schema": "https://json-schema.org/draft/2019-09/schema",
+              "$id": "matrixCheckbox.json",
+              "description": "Nettskjema form answer for type MATRIX_CHECKBOX",
+              "type": "object",
+              "propertyNames": {
+                "pattern": "^[A-Za-z0-9_]+"
+              },
+              "additionalProperties": false,
+              "patternProperties": {
+                "^[A-Za-z0-9_]+": {
+                  "$schema": "https://json-schema.org/draft/2019-09/schema",
+                  "$id": "checkbox.json",
+                  "description": "Nettskjema form answer for type CHECKBOX",
+                  "type": "object",
+                  "propertyNames": {
+                    "pattern": "^[A-Za-z0-9_]+"
+                  },
+                  "additionalProperties": false,
+                  "patternProperties": {
+                    "^[A-Za-z0-9_]+": {
+                      "description": "A single checkbox answer with externalElementId as keys.",
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "$schema": "https://json-schema.org/draft/2019-09/schema",
+              "$id": "matrixRadio.json",
+              "description": "Nettskjema form answer for type MATRIX_RADIO",
+              "type": "object",
+              "propertyNames": {
+                "pattern": "^[A-Za-z0-9_]+"
+              },
+              "additionalProperties": false,
+              "patternProperties": {
+                "^[A-Za-z0-9_]+": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "$schema": "https://json-schema.org/draft/2019-09/schema",
+              "$id": "name.json",
+              "description": "Nettskjema form answer for type NAME",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "$schema": "https://json-schema.org/draft/2019-09/schema",
+              "$id": "nationalId.json",
+              "description": "Nettskjema form answer for type NATIONAL_ID_NUMBER",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "$schema": "https://json-schema.org/draft/2019-09/schema",
+              "$id": "number.json",
+              "description": "Nettskjema form answer for type NUMBER",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            {
+              "$schema": "https://json-schema.org/draft/2019-09/schema",
+              "$id": "phone.json",
+              "description": "Nettskjema form answer for type PHONE",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "$schema": "https://json-schema.org/draft/2019-09/schema",
+              "$id": "Question.json",
+              "description": "Nettskjema form answer for type QUESTION",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "$schema": "https://json-schema.org/draft/2019-09/schema",
+              "$id": "radio.json",
+              "description": "Nettskjema form answer for type RADIO",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "$schema": "https://json-schema.org/draft/2019-09/schema",
+              "$id": "select.json",
+              "description": "Nettskjema form answer for type SELECT",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "$schema": "https://json-schema.org/draft/2019-09/schema",
+              "$id": "submissionReference.json",
+              "description": "Nettskjema form answer for type SUBMISSION_REFERENCE",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "$schema": "https://json-schema.org/draft/2019-09/schema",
+              "$id": "username.json",
+              "description": "Nettskjema form answer for type USERNAME",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "metadata": {
+      "description": "Metadata for the submission.",
+      "type": "object",
+      "required": [
+        "created",
+        "answer_time",
+        "submission_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "created": {
+          "description": "When was the submission created.",
+          "type": "string"
+        },
+        "answer_time": {
+          "description": "How many seconds did it take to answer the form.",
+          "type": "number"
+        },
+        "submission_id": {
+          "description": "Unique identifier for this submission.",
+          "type": "number"
+        },
+        "number_of_attachments": {
+          "type": "number"
+        },
+        "respondent": {
+          "description": "Info about the respondent of the nettskjema.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "provider",
+            "sub"
+          ],
+          "properties": {
+            "provider": {
+              "description": "The identity provider.",
+              "type": "string",
+              "enum": [
+                "tsd",
+                "idporten",
+                "feide"
+              ]
+            },
+            "sub": {
+              "description": "OIDC sub",
+              "type": "string"
+            },
+            "personal_identifier": {
+              "description": "National personal identifier.",
+              "type": "string"
+            },
+            "user_name": {
+              "description": "User name assigned to the respondent by their IdP.",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "version": {
+      "description": "An identifier which format is used. Can be used to find correct version of this schema.",
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "respondent": {
+      "description": "Info about the respondent of the nettskjema.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider",
+        "sub"
+      ],
+      "properties": {
+        "provider": {
+          "description": "The identity provider.",
+          "type": "string",
+          "enum": [
+            "tsd",
+            "idporten",
+            "feide"
+          ]
+        },
+        "sub": {
+          "description": "OIDC sub",
+          "type": "string"
+        },
+        "personal_identifier": {
+          "description": "National personal identifier.",
+          "type": "string"
+        },
+        "user_name": {
+          "description": "User name assigned to the respondent by their IdP.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
