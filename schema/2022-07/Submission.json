@@ -34,6 +34,7 @@
                         {"$ref": "answers/number.json"},
                         {"$ref": "answers/phone.json"},
                         {"$ref": "answers/question.json"},
+                        {"$ref": "answers/questionMultiline.json"},
                         {"$ref": "answers/radio.json"},
                         {"$ref": "answers/select.json"},
                         {"$ref": "answers/submissionReference.json"},

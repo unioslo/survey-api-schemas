@@ -213,6 +213,15 @@
             },
             {
               "$schema": "https://json-schema.org/draft/2019-09/schema",
+              "$id": "questionMultiline.json",
+              "description": "Nettskjema form answer for type QUESTION_MULTILINE",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "$schema": "https://json-schema.org/draft/2019-09/schema",
               "$id": "radio.json",
               "description": "Nettskjema form answer for type RADIO",
               "type": [

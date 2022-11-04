@@ -367,6 +367,7 @@
         "PAGE_BREAK",
         "PHONE",
         "QUESTION",
+        "QUESTION_MULTILINE",
         "RADIO",
         "SELECT",
         "SUBMISSION_REFERENCE",
