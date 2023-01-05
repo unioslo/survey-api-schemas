@@ -112,7 +112,13 @@
     "respondentGroup": {
       "description": "?",
       "$comment": "What does this mean? and what are the possible values?",
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "ID_PORTEN_LEVEL_3",
+        "ID_PORTEN_LEVEL_3_SIGNING",
+        "ID_PORTEN_LEVEL_4",
+        "ID_PORTEN_LEVEL_4_SIGNING"
+      ]
     },
     "clientPostponable": {
       "description": "Can the client postpone the answer.",
