@@ -274,6 +274,10 @@
           "description": "When was the submission created.",
           "type": "string"
         },
+        "forwarded_to_form": {
+          "description": "What form was this form forwarding to?",
+          "type": "number"
+        },
         "answer_time": {
           "description": "How many seconds did it take to answer the form.",
           "type": "number"
