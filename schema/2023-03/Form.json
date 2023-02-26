@@ -288,10 +288,6 @@
           "$comment": "Should this be renamed to better reflect that it is from the codebook?",
           "type": "string"
         },
-        "questionId": {
-          "description": "??? fill me in! (FK)",
-          "type": "number"
-        },
         "sendAdditionalRecipientEmail": {
           "description": "Should additional emails be sent to the recipient?",
           "$comment": "How does this work? Is it needed for each question?",
