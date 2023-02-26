@@ -1,0 +1,119 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "Submission.json",
+    "$comment": "$id should be URL where the schema is available.",
+    "description": "Nettskjema submission metadata",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "answers",
+        "metadata",
+        "version"
+    ],
+    "properties": {
+        "answers": {
+            "description": "Answers in the submission with externalElementId as keys. Their order is defined by the 'elements' in the forms metadata for this skjema.",
+            "type": "object",
+            "additionalProperties": false,
+            "propertyNames": {
+                "pattern": "^[A-Za-z0-9_]+"
+            },
+            "patternProperties": {
+                "^[A-Za-z0-9_]+": {
+                    "description": "A single answer with externalElementId as keys.",
+                    "oneOf": [
+                        {"$ref": "answers/attachment.json"},
+                        {"$ref": "answers/checkbox.json"},
+                        {"$ref": "answers/date.json"},
+                        {"$ref": "answers/email.json"},
+                        {"$ref": "answers/linearScale.json"},
+                        {"$ref": "answers/matrixCheckbox.json"},
+                        {"$ref": "answers/matrixRadio.json"},
+                        {"$ref": "answers/name.json"},
+                        {"$ref": "answers/nationalId.json"},
+                        {"$ref": "answers/number.json"},
+                        {"$ref": "answers/phone.json"},
+                        {"$ref": "answers/question.json"},
+                        {"$ref": "answers/questionMultiline.json"},
+                        {"$ref": "answers/radio.json"},
+                        {"$ref": "answers/select.json"},
+                        {"$ref": "answers/submissionReference.json"},
+                        {"$ref": "answers/username.json"}
+                    ]
+                }
+            }
+        },
+        "metadata": {
+            "description": "Metadata for the submission.",
+            "type": "object",
+            "required": [
+                "created",
+                "answer_time",
+                "submission_id"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "created": {
+                    "description": "When was the submission created.",
+                    "type": "string"
+                },
+                "forwarded_to_form": {
+                    "description": "What form was this form forwarding to?",
+                    "type": "number"
+                },
+                "answer_time": {
+                    "description": "How many seconds did it take to answer the form.",
+                    "type": "number"
+                },
+                "submission_id": {
+                    "description": "Unique identifier for this submission.",
+                    "type": "number"
+                },
+                "number_of_attachments": {
+                    "type": "number"
+                },
+                "respondent": {
+                    "$ref": "#/$defs/respondent"
+                }
+            }
+        },
+        "version": {
+            "description": "An identifier which format is used. Can be used to find correct version of this schema.",
+            "type": "string"
+        }
+    },
+    "$defs": {
+        "respondent": {
+            "description": "Info about the respondent of the nettskjema.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "provider",
+                "sub"
+            ],
+            "properties": {
+                "provider": {
+                    "description": "The identity provider.",
+                    "type": "string",
+                    "enum": [
+                        "tsd",
+                        "idporten",
+                        "feide"
+                    ]
+                },
+                "sub": {
+                    "description": "OIDC sub",
+                    "type": "string"
+                },
+                "personal_identifier": {
+                    "description": "National personal identifier.",
+                    "type": "string"
+                },
+                "user_name": {
+                    "description": "User name assigned to the respondent by their IdP.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
