@@ -101,8 +101,8 @@
       "description": "When was the form last modified.",
       "type": "string"
     },
-    "tsdConsentForm": {
-      "description": "Is this a TSD Consent form",
+    "consentForm": {
+      "description": "Is this a consent form",
       "type": "boolean"
     },
     "tsdProjectName": {
