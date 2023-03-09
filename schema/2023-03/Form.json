@@ -226,10 +226,6 @@
           "description": "Question text.",
           "type": "string"
         },
-        "title": {
-          "description": "Title (used for parent elements).",
-          "type": "string"
-        },
         "sequence": {
           "description": "Which question number is this.",
           "type": "number"
