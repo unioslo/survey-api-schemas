@@ -242,11 +242,6 @@
           "description": "Is this element mandatory.",
           "type": "boolean"
         },
-        "published": {
-          "description": "Has this element been published?",
-          "$comment": "What exactly does published mean?",
-          "type": "boolean"
-        },
         "dateFormat": {
           "$ref": "#/$defs/dateFormat"
         },
