@@ -336,10 +336,6 @@
           "description": "Which question number is this.",
           "type": "number"
         },
-        "subElementId": {
-          "description": "Unique identifier for this element.",
-          "type": "number"
-        },
         "mandatory": {
           "description": "Is this element mandatory.",
           "type": "boolean"
