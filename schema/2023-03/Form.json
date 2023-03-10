@@ -299,7 +299,7 @@
         },
         "subElements": {
           "type": "array",
-          "items": [{ "$ref": "#/$defs/element" }]
+          "items": [{ "$ref": "#/$defs/subElement" }]
         },
         "nationalIdNumberType": {
           "description": "Enum specifying the ID format",
