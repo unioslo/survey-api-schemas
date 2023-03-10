@@ -230,10 +230,6 @@
           "description": "Which question number is this.",
           "type": "number"
         },
-        "elementId": {
-          "description": "Unique identifier for this element.",
-          "type": "number"
-        },
         "mandatory": {
           "description": "Is this element mandatory.",
           "type": "boolean"
@@ -335,10 +331,7 @@
           "description": "Was this option preselected.",
           "type": "boolean"
         },
-        "answerOptionId": {
-          "description": "Unique identifier for this answer option.",
-          "type": "number"
-        },
+
         "externalAnswerOptionId": {
           "description": "Codebook value for this answer option.",
           "type": "string"
