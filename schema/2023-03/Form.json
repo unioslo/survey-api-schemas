@@ -420,7 +420,6 @@
           "description": "Was this option preselected.",
           "type": "boolean"
         },
-
         "externalAnswerOptionId": {
           "description": "Codebook value for this answer option.",
           "type": "string"
