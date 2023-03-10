@@ -310,7 +310,7 @@
       }
     },
     "subElement": {
-      "description": "Subelements of a element.",
+      "description": "SubElements of an element.",
       "type": "object",
       "additionalProperties": false,
       "required": ["sequence", "mandatory"],
@@ -347,7 +347,7 @@
           "type": "number"
         },
         "minimumValue": {
-          "description": "Minimu, value of answer.",
+          "description": "Minimum, value of answer.",
           "type": "number"
         },
         "linearScaleType": {
