@@ -254,7 +254,7 @@
           "type": "number"
         },
         "minimumValue": {
-          "description": "Minimu, value of answer.",
+          "description": "Minimum, value of answer.",
           "type": "number"
         },
         "linearScaleType": {
