@@ -162,12 +162,6 @@
       "type": "string",
       "enum": ["NONE"]
     },
-    "newDesignEnabledSetting": {
-      "description": "Has new design been enabled for form.",
-      "$comment": "What are possible values?",
-      "type": "string",
-      "enum": ["ALWAYS"]
-    },
     "sendingReceiptToRespondent": {
       "description": "Will receipts be sent to respondendts.",
       "type": "boolean"
