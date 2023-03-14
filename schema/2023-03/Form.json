@@ -101,7 +101,7 @@
       "description": "When was the form last modified.",
       "type": "string"
     },
-    "consentForm": {
+    "isConsentForm": {
       "description": "Is this a consent form",
       "type": "boolean"
     },
