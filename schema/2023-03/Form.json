@@ -16,7 +16,7 @@
     "createdDate",
     "languageCode",
     "modifiedDate",
-    "tsdProjectName",
+    "projectName",
     "respondentGroup",
     "collectsPersonalData",
     "sensitivePersonalDataCollected"
