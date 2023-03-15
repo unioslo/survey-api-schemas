@@ -120,6 +120,10 @@
         "ID_PORTEN_LEVEL_4_SIGNING"
       ]
     },
+    "afterDeliveryForwardFormIds": {
+      "description": "Is this form forwarding to another form? String contains a comma-separated list of form IDs",
+      "type": ["string", "null"]
+    },
     "deliveryDestination": {
       "description": "Where the form will be delivered.",
       "$comment": "What other values are possible?",
