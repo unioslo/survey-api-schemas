@@ -189,15 +189,19 @@
     "editor": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["name", "personId"],
+	"required": ["username", "type", "personId"],
       "properties": {
         "name": {
           "description": "Name of the editor.",
           "type": "string"
         },
+        "email": {
+          "description": "Email of the editor.",
+          "type": "string"
+        },
         "type": {
-          "description": "Type of editor.",
-          "$comment": "TODO: What is this?",
+          "description": "User type",
+          "$comment": "See https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/person/enums/UserType.java",
           "type": "string"
         },
         "personId": {
