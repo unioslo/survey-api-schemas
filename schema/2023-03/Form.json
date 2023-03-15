@@ -105,7 +105,7 @@
       "description": "Is this a consent form",
       "type": "boolean"
     },
-    "tsdProjectName": {
+    "projectName": {
       "description": "Which TSD project does the form belong to.",
       "type": "string"
     },
