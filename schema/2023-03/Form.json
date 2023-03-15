@@ -120,18 +120,6 @@
         "ID_PORTEN_LEVEL_4_SIGNING"
       ]
     },
-    "afterDeliveryForwardFormIds": {
-      "description": "Is this form forwarding to another form? String contains a comma-separated list of form IDs",
-      "type": ["string", "null"]
-    },
-    "clientPostponable": {
-      "description": "Can the client postpone the answer.",
-      "type": "boolean"
-    },
-    "codebookActivated": {
-      "description": "Has the codebook been activated.",
-      "type": "boolean"
-    },
     "deliveryDestination": {
       "description": "Where the form will be delivered.",
       "$comment": "What other values are possible?",
@@ -151,21 +139,6 @@
       "description": "How many times can a person submit the same form.",
       "type": "number"
     },
-    "shouldHideProgressBar": {
-      "description": "?",
-      "$comment": "What is this?",
-      "type": "boolean"
-    },
-    "scoreResultDisplayType": {
-      "description": "What type of results should be displayed.",
-      "$comment": "What are possible values?",
-      "type": "string",
-      "enum": ["NONE"]
-    },
-    "sendingReceiptToRespondent": {
-      "description": "Will receipts be sent to respondendts.",
-      "type": "boolean"
-    },
     "shouldPreventDataManipulation": {
       "description": "?",
       "$comment": "What is this?",
@@ -175,15 +148,6 @@
       "description": "Has sensitive data been collected.",
       "type": "boolean"
     },
-    "shouldGetRespondentInfoFromPerson": {
-      "description": "?",
-      "$comment": "What does this mean?",
-      "type": "boolean"
-    },
-    "retainRespondentAccessAfterDelivery": {
-      "description": "Should the respondent have access to their submission after submitting.",
-      "type": "boolean"
-    }
   },
   "$defs": {
     "editor": {
@@ -228,17 +192,8 @@
           "description": "Which question number is this.",
           "type": "number"
         },
-        "mandatory": {
-          "description": "Is this element mandatory.",
-          "type": "boolean"
-        },
         "dateFormat": {
           "$ref": "#/$defs/dateFormat"
-        },
-        "horizontal": {
-          "description": "?",
-          "$comment": "What does this signify?",
-          "type": "boolean"
         },
         "description": {
           "description": "Description of the element.",
@@ -246,20 +201,6 @@
         },
         "elementType": {
           "$ref": "#/$defs/elementType"
-        },
-        "maximumValue": {
-          "description": "Maximum value of answer.",
-          "type": "number"
-        },
-        "minimumValue": {
-          "description": "Minimum, value of answer.",
-          "type": "number"
-        },
-        "linearScaleType": {
-          "description": "What kind of linear scale is this.",
-          "$comment": "What are valid values?",
-          "type": "string",
-          "enum": ["ALL"]
         },
         "answerOptions": {
           "description": "Answer options.",
@@ -272,11 +213,6 @@
           "description": "Codebook key for this element",
           "$comment": "Should this be renamed to better reflect that it is from the codebook?",
           "type": "string"
-        },
-        "sendAdditionalRecipientEmail": {
-          "description": "Should additional emails be sent to the recipient?",
-          "$comment": "How does this work? Is it needed for each question?",
-          "type": "boolean"
         },
         "maxSelectedAnswerOptions": {
           "description": "Maximum number of answers.",
@@ -295,15 +231,6 @@
         },
         "nationalIdNumberOfLetters": {
           "type": "number"
-        },
-        "repeatedNationalIdRequired": {
-          "type": "boolean"
-        },
-        "rangeMarksShown": {
-          "type": "boolean"
-        },
-        "numberOfDecimals": {
-          "type": "number"
         }
       }
     },
@@ -321,17 +248,8 @@
           "description": "Which question number is this.",
           "type": "number"
         },
-        "mandatory": {
-          "description": "Is this element mandatory.",
-          "type": "boolean"
-        },
         "dateFormat": {
           "$ref": "#/$defs/dateFormat"
-        },
-        "horizontal": {
-          "description": "?",
-          "$comment": "What does this signify?",
-          "type": "boolean"
         },
         "description": {
           "description": "Description of the element.",
@@ -339,20 +257,6 @@
         },
         "elementType": {
           "$ref": "#/$defs/elementType"
-        },
-        "maximumValue": {
-          "description": "Maximum value of answer.",
-          "type": "number"
-        },
-        "minimumValue": {
-          "description": "Minimum, value of answer.",
-          "type": "number"
-        },
-        "linearScaleType": {
-          "description": "What kind of linear scale is this.",
-          "$comment": "What are valid values?",
-          "type": "string",
-          "enum": ["ALL"]
         },
         "answerOptions": {
           "description": "Answer options.",
@@ -365,11 +269,6 @@
           "description": "Codebook key for this element",
           "$comment": "Should this be renamed to better reflect that it is from the codebook?",
           "type": "string"
-        },
-        "sendAdditionalRecipientEmail": {
-          "description": "Should additional emails be sent to the recipient?",
-          "$comment": "How does this work? Is it needed for each question?",
-          "type": "boolean"
         },
         "maxSelectedAnswerOptions": {
           "description": "Maximum number of answers.",
@@ -384,15 +283,6 @@
         },
         "nationalIdNumberOfLetters": {
           "type": "number"
-        },
-        "repeatedNationalIdRequired": {
-          "type": "boolean"
-        },
-        "rangeMarksShown": {
-          "type": "boolean"
-        },
-        "numberOfDecimals": {
-          "type": "number"
         }
       }
     },
@@ -405,10 +295,6 @@
         "text": {
           "description": "Text value for the answer option.",
           "type": "string"
-        },
-        "correct": {
-          "description": "Was the answer correct (if applicable)",
-          "type": "boolean"
         },
         "sequence": {
           "description": "Which answer number is this.",
