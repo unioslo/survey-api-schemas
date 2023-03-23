@@ -80,7 +80,11 @@
       }
     },
     "openFrom": {
-      "description": "??? fill me in! FK",
+      "description": "The date the form is opened.",
+      "type": "string"
+    },
+    "openTo": {
+      "description": "The date the form is closed.",
       "type": "string"
     },
     "createdBy": {
@@ -102,7 +106,7 @@
       "type": "string"
     },
     "isConsentForm": {
-      "description": "Is this a consent form",
+      "description": "Is this a consent form.",
       "type": "boolean"
     },
     "projectName": {
@@ -137,15 +141,6 @@
     },
     "collectsPersonalData": {
       "description": "Does the form collect personal data.",
-      "type": "boolean"
-    },
-    "maxSubmissionsPerson": {
-      "description": "How many times can a person submit the same form.",
-      "type": "number"
-    },
-    "shouldPreventDataManipulation": {
-      "description": "?",
-      "$comment": "What is this?",
       "type": "boolean"
     },
     "sensitivePersonalDataCollected": {
@@ -218,10 +213,6 @@
           "$comment": "Should this be renamed to better reflect that it is from the codebook?",
           "type": "string"
         },
-        "maxSelectedAnswerOptions": {
-          "description": "Maximum number of answers.",
-          "type": "number"
-        },
         "subElements": {
           "type": "array",
           "items": [{ "$ref": "#/$defs/subElement" }]
@@ -230,12 +221,6 @@
           "description": "Enum specifying the ID format",
           "type": "string"
         },
-        "nationalIdNumberOfDigits": {
-          "type": "number"
-        },
-        "nationalIdNumberOfLetters": {
-          "type": "number"
-        }
       }
     },
     "subElement": {
@@ -274,20 +259,10 @@
           "$comment": "Should this be renamed to better reflect that it is from the codebook?",
           "type": "string"
         },
-        "maxSelectedAnswerOptions": {
-          "description": "Maximum number of answers.",
-          "type": "number"
-        },
         "nationalIdNumberType": {
           "description": "Enum specifying the ID format",
           "type": "string"
         },
-        "nationalIdNumberOfDigits": {
-          "type": "number"
-        },
-        "nationalIdNumberOfLetters": {
-          "type": "number"
-        }
       }
     },
     "answerOption": {
@@ -303,10 +278,6 @@
         "sequence": {
           "description": "Which answer number is this.",
           "type": "number"
-        },
-        "preselected": {
-          "description": "Was this option preselected.",
-          "type": "boolean"
         },
         "externalAnswerOptionId": {
           "description": "Codebook value for this answer option.",
