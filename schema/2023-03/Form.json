@@ -184,7 +184,7 @@
       "required": ["sequence", "mandatory"],
       "properties": {
         "text": {
-          "description": "The text of the element, f.x. question text or title for a matrix.",
+          "description": "The text of the element, e.g. question text or title for a matrix.",
           "type": "string"
         },
         "title": {
