@@ -114,7 +114,7 @@
       "type": "string"
     },
     "respondentGroup": {
-      "description": "What sort of authentication is required to ansewer",
+      "description": "What sort of authentication is required to answer.",
       "$comment": "https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/form/enums/RespondentGroup.java",
       "type": "string",
       "enum": [
@@ -137,16 +137,6 @@
       "$comment": "https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/form/enums/DeliveryDestination.java",
       "type": "string",
       "enum": ["TSD","EDUCLOUD"]
-    },
-    "editorsContactEmail": {
-      "description": "An email address which is the contact email for the form.",
-      "$comment": "A form must have either a editorsContactEmail or a editorsContactUrl",
-      "type": "string"
-    },
-   "editorsContactUrl": {
-      "description": "An url which is the contact url for the form.",
-      "$comment": "A form must have either a editorsContactEmail or a editorsContactUrl",
-      "type": "string"
     },
     "collectsPersonalData": {
       "description": "Does the form collect personal data.",
