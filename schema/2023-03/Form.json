@@ -16,7 +16,7 @@
     "createdDate",
     "languageCode",
     "modifiedDate",
-    "tsdProjectName",
+    "projectName",
     "respondentGroup",
     "collectsPersonalData",
     "sensitivePersonalDataCollected"
@@ -80,7 +80,11 @@
       }
     },
     "openFrom": {
-      "description": "??? fill me in! FK",
+      "description": "The date the form is opened.",
+      "type": "string"
+    },
+    "openTo": {
+      "description": "The date the form is closed.",
       "type": "string"
     },
     "createdBy": {
@@ -101,19 +105,22 @@
       "description": "When was the form last modified.",
       "type": "string"
     },
-    "tsdConsentForm": {
-      "description": "Is this a TSD Consent form",
+    "isConsentForm": {
+      "description": "Is this a consent form.",
       "type": "boolean"
     },
-    "tsdProjectName": {
+    "projectName": {
       "description": "Which TSD project does the form belong to.",
       "type": "string"
     },
     "respondentGroup": {
-      "description": "?",
-      "$comment": "What does this mean? and what are the possible values?",
+      "description": "What sort of authentication is required to answer.",
+      "$comment": "https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/form/enums/RespondentGroup.java",
       "type": "string",
       "enum": [
+        "ALL",
+        "FEIDE",
+        "INVITED",
         "ID_PORTEN_LEVEL_3",
         "ID_PORTEN_LEVEL_3_SIGNING",
         "ID_PORTEN_LEVEL_4",
@@ -121,89 +128,42 @@
       ]
     },
     "afterDeliveryForwardFormIds": {
-      "description": "Is this form forwarding to another form? String contains a comma-separated list of form IDs",
+      "description": "A comma-separated list of formIds for forwarding after delivery.",
+      "$comment": "If there is multiple values one is picked on random.",
       "type": ["string", "null"]
-    },
-    "clientPostponable": {
-      "description": "Can the client postpone the answer.",
-      "type": "boolean"
-    },
-    "codebookActivated": {
-      "description": "Has the codebook been activated.",
-      "type": "boolean"
     },
     "deliveryDestination": {
       "description": "Where the form will be delivered.",
-      "$comment": "What other values are possible?",
+      "$comment": "https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/form/enums/DeliveryDestination.java",
       "type": "string",
-      "enum": ["TSD"]
-    },
-    "editorsContactEmail": {
-      "description": "E-mail of the editor.",
-      "$comment": "Can this be an array if multiple editors, or is it just the initial one?",
-      "type": "string"
+      "enum": ["TSD","EDUCLOUD"]
     },
     "collectsPersonalData": {
       "description": "Does the form collect personal data.",
-      "type": "boolean"
-    },
-    "maxSubmissionsPerson": {
-      "description": "How many times can a person submit the same form.",
-      "type": "number"
-    },
-    "shouldHideProgressBar": {
-      "description": "?",
-      "$comment": "What is this?",
-      "type": "boolean"
-    },
-    "scoreResultDisplayType": {
-      "description": "What type of results should be displayed.",
-      "$comment": "What are possible values?",
-      "type": "string",
-      "enum": ["NONE"]
-    },
-    "newDesignEnabledSetting": {
-      "description": "Has new design been enabled for form.",
-      "$comment": "What are possible values?",
-      "type": "string",
-      "enum": ["ALWAYS"]
-    },
-    "sendingReceiptToRespondent": {
-      "description": "Will receipts be sent to respondendts.",
-      "type": "boolean"
-    },
-    "shouldPreventDataManipulation": {
-      "description": "?",
-      "$comment": "What is this?",
       "type": "boolean"
     },
     "sensitivePersonalDataCollected": {
       "description": "Has sensitive data been collected.",
       "type": "boolean"
     },
-    "shouldGetRespondentInfoFromPerson": {
-      "description": "?",
-      "$comment": "What does this mean?",
-      "type": "boolean"
-    },
-    "retainRespondentAccessAfterDelivery": {
-      "description": "Should the respondent have access to their submission after submitting.",
-      "type": "boolean"
-    }
   },
   "$defs": {
     "editor": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["name", "personId"],
+	"required": ["username", "type", "personId"],
       "properties": {
         "name": {
           "description": "Name of the editor.",
           "type": "string"
         },
+        "email": {
+          "description": "Email of the editor.",
+          "type": "string"
+        },
         "type": {
-          "description": "Type of editor.",
-          "$comment": "TODO: What is this?",
+          "description": "User type",
+          "$comment": "See https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/person/enums/UserType.java",
           "type": "string"
         },
         "personId": {
@@ -223,37 +183,19 @@
       "required": ["sequence", "mandatory"],
       "properties": {
         "text": {
-          "description": "Question text.",
+          "description": "The text of the element, e.g. question text or title for a matrix.",
           "type": "string"
         },
         "title": {
-          "description": "Title (used for parent elements).",
+          "description": "Same content as text. Deprecated.",
           "type": "string"
         },
         "sequence": {
           "description": "Which question number is this.",
           "type": "number"
         },
-        "elementId": {
-          "description": "Unique identifier for this element.",
-          "type": "number"
-        },
-        "mandatory": {
-          "description": "Is this element mandatory.",
-          "type": "boolean"
-        },
-        "published": {
-          "description": "Has this element been published?",
-          "$comment": "What exactly does published mean?",
-          "type": "boolean"
-        },
         "dateFormat": {
           "$ref": "#/$defs/dateFormat"
-        },
-        "horizontal": {
-          "description": "?",
-          "$comment": "What does this signify?",
-          "type": "boolean"
         },
         "description": {
           "description": "Description of the element.",
@@ -261,20 +203,6 @@
         },
         "elementType": {
           "$ref": "#/$defs/elementType"
-        },
-        "maximumValue": {
-          "description": "Maximum value of answer.",
-          "type": "number"
-        },
-        "minimumValue": {
-          "description": "Minimu, value of answer.",
-          "type": "number"
-        },
-        "linearScaleType": {
-          "description": "What kind of linear scale is this.",
-          "$comment": "What are valid values?",
-          "type": "string",
-          "enum": ["ALL"]
         },
         "answerOptions": {
           "description": "Answer options.",
@@ -285,45 +213,57 @@
         },
         "externalElementId": {
           "description": "Codebook key for this element",
-          "$comment": "Should this be renamed to better reflect that it is from the codebook?",
           "type": "string"
-        },
-        "questionId": {
-          "description": "??? fill me in! (FK)",
-          "type": "number"
-        },
-        "sendAdditionalRecipientEmail": {
-          "description": "Should additional emails be sent to the recipient?",
-          "$comment": "How does this work? Is it needed for each question?",
-          "type": "boolean"
-        },
-        "maxSelectedAnswerOptions": {
-          "description": "Maximum number of answers.",
-          "type": "number"
         },
         "subElements": {
           "type": "array",
-          "items": [{ "$ref": "#/$defs/element" }]
+          "items": [{ "$ref": "#/$defs/subElement" }]
         },
         "nationalIdNumberType": {
           "description": "Enum specifying the ID format",
           "type": "string"
         },
-        "nationalIdNumberOfDigits": {
+      }
+    },
+    "subElement": {
+      "description": "SubElements of an element.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sequence", "mandatory"],
+      "properties": {
+        "text": {
+          "description": "Question text.",
+          "type": "string"
+        },
+        "sequence": {
+          "description": "Which question number is this.",
           "type": "number"
         },
-        "nationalIdNumberOfLetters": {
-          "type": "number"
+        "dateFormat": {
+          "$ref": "#/$defs/dateFormat"
         },
-        "repeatedNationalIdRequired": {
-          "type": "boolean"
+        "description": {
+          "description": "Description of the element.",
+          "type": "string"
         },
-        "rangeMarksShown": {
-          "type": "boolean"
+        "elementType": {
+          "$ref": "#/$defs/elementType"
         },
-        "numberOfDecimals": {
-          "type": "number"
-        }
+        "answerOptions": {
+          "description": "Answer options.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/answerOption"
+          }
+        },
+        "externalElementId": {
+          "description": "Codebook key for this element.",
+          "type": "string"
+        },
+        "nationalIdNumberType": {
+          "description": "Enum specifying the ID format.",
+          "type": "string"
+        },
       }
     },
     "answerOption": {
@@ -336,20 +276,8 @@
           "description": "Text value for the answer option.",
           "type": "string"
         },
-        "correct": {
-          "description": "Was the answer correct (if applicable)",
-          "type": "boolean"
-        },
         "sequence": {
           "description": "Which answer number is this.",
-          "type": "number"
-        },
-        "preselected": {
-          "description": "Was this option preselected.",
-          "type": "boolean"
-        },
-        "answerOptionId": {
-          "description": "Unique identifier for this answer option.",
           "type": "number"
         },
         "externalAnswerOptionId": {
@@ -360,6 +288,7 @@
     },
     "elementType": {
       "description": "Nettskjema question types.",
+      "$comment": "https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/form/enums/ElementType.java",
       "type": "string",
       "enum": [
         "ATTACHMENT",
@@ -386,8 +315,8 @@
       ]
     },
     "dateFormat": {
-      "description": "Type of date collected",
-      "$comment": "What are possible values?",
+      "description": "Type of date collected.",
+      "$comment": "https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/form/enums/DateFormat.java",
       "type": "string",
       "enum": ["DATE", "TIME", "DATE_TIME"]
     }
