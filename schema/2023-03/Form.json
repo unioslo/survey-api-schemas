@@ -114,10 +114,13 @@
       "type": "string"
     },
     "respondentGroup": {
-      "description": "?",
-      "$comment": "What does this mean? and what are the possible values?",
+      "description": "What sort of authentication is required to ansewer",
+      "$comment": "https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/form/enums/RespondentGroup.java",
       "type": "string",
       "enum": [
+        "ALL",
+        "FEIDE",
+        "INVITED",
         "ID_PORTEN_LEVEL_3",
         "ID_PORTEN_LEVEL_3_SIGNING",
         "ID_PORTEN_LEVEL_4",
@@ -125,18 +128,24 @@
       ]
     },
     "afterDeliveryForwardFormIds": {
-      "description": "Is this form forwarding to another form? String contains a comma-separated list of form IDs",
+      "description": "A comma-separated list of formIds for forwarding after delivery.",
+      "$comment": "If there is multiple values one is picked on random.",
       "type": ["string", "null"]
     },
     "deliveryDestination": {
       "description": "Where the form will be delivered.",
-      "$comment": "What other values are possible?",
+      "$comment": "https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/form/enums/DeliveryDestination.java",
       "type": "string",
-      "enum": ["TSD"]
+      "enum": ["TSD","EDUCLOUD"]
     },
     "editorsContactEmail": {
-      "description": "E-mail of the editor.",
-      "$comment": "Can this be an array if multiple editors, or is it just the initial one?",
+      "description": "An email address which is the contact email for the form.",
+      "$comment": "A form must have either a editorsContactEmail or a editorsContactUrl",
+      "type": "string"
+    },
+   "editorsContactUrl": {
+      "description": "An url which is the contact url for the form.",
+      "$comment": "A form must have either a editorsContactEmail or a editorsContactUrl",
       "type": "string"
     },
     "collectsPersonalData": {
@@ -214,7 +223,6 @@
         },
         "externalElementId": {
           "description": "Codebook key for this element",
-          "$comment": "Should this be renamed to better reflect that it is from the codebook?",
           "type": "string"
         },
         "subElements": {
@@ -259,12 +267,11 @@
           }
         },
         "externalElementId": {
-          "description": "Codebook key for this element",
-          "$comment": "Should this be renamed to better reflect that it is from the codebook?",
+          "description": "Codebook key for this element.",
           "type": "string"
         },
         "nationalIdNumberType": {
-          "description": "Enum specifying the ID format",
+          "description": "Enum specifying the ID format.",
           "type": "string"
         },
       }
@@ -291,6 +298,7 @@
     },
     "elementType": {
       "description": "Nettskjema question types.",
+      "$comment": "https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/form/enums/ElementType.java",
       "type": "string",
       "enum": [
         "ATTACHMENT",
@@ -317,8 +325,8 @@
       ]
     },
     "dateFormat": {
-      "description": "Type of date collected",
-      "$comment": "What are possible values?",
+      "description": "Type of date collected.",
+      "$comment": "https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/form/enums/DateFormat.java",
       "type": "string",
       "enum": ["DATE", "TIME", "DATE_TIME"]
     }
