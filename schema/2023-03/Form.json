@@ -1,0 +1,324 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "Form.json",
+  "$comment": "$id should be URL where the schema is available.",
+  "description": "Nettskjema form metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "title",
+    "formId",
+    "editors",
+    "elements",
+    "createdBy",
+    "openFrom",
+    "modifiedBy",
+    "createdDate",
+    "languageCode",
+    "modifiedDate",
+    "projectName",
+    "respondentGroup",
+    "collectsPersonalData",
+    "sensitivePersonalDataCollected"
+  ],
+  "properties": {
+    "$schema": {
+      "description": "Which schema conforms to.",
+      "type": "string"
+    },
+    "theme": {
+      "description": "Which theme was used when collected.",
+      "type": "string"
+    },
+    "title": {
+      "description": "Title of the skjema.",
+      "type": "string"
+    },
+    "formId": {
+      "description": "Unique identifier for the skjema.",
+      "type": "number"
+    },
+    "datasets": {
+      "description": "What datasets should be generated for this form.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["csv", "spss", "json"]
+      }
+    },
+    "permissions": {
+      "description": "Permissions required for dataset and APIs",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["datasets", "api"],
+      "properties": {
+        "datasets": {
+          "description": "What group should be required to view generated datasets.",
+          "type": "string"
+        },
+        "api": {
+          "description": "Which groups should have API access to the form.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "editors": {
+      "description": "Editors of the skjema.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/editor"
+      }
+    },
+    "elements": {
+      "description": "Elements in this skjema.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/element"
+      }
+    },
+    "openFrom": {
+      "description": "The date the form is opened.",
+      "type": "string"
+    },
+    "openTo": {
+      "description": "The date the form is closed.",
+      "type": "string"
+    },
+    "createdBy": {
+      "$ref": "#/$defs/editor"
+    },
+    "modifiedBy": {
+      "$ref": "#/$defs/editor"
+    },
+    "createdDate": {
+      "description": "When this skjema was created.",
+      "type": "string"
+    },
+    "languageCode": {
+      "description": "Language code for the skjema.",
+      "type": "string"
+    },
+    "modifiedDate": {
+      "description": "When was the form last modified.",
+      "type": "string"
+    },
+    "isConsentForm": {
+      "description": "Is this a consent form.",
+      "type": "boolean"
+    },
+    "projectName": {
+      "description": "Which TSD project does the form belong to.",
+      "type": "string"
+    },
+    "respondentGroup": {
+      "description": "What sort of authentication is required to answer.",
+      "$comment": "https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/form/enums/RespondentGroup.java",
+      "type": "string",
+      "enum": [
+        "ALL",
+        "FEIDE",
+        "INVITED",
+        "ID_PORTEN_LEVEL_3",
+        "ID_PORTEN_LEVEL_3_SIGNING",
+        "ID_PORTEN_LEVEL_4",
+        "ID_PORTEN_LEVEL_4_SIGNING"
+      ]
+    },
+    "afterDeliveryForwardFormIds": {
+      "description": "A comma-separated list of formIds for forwarding after delivery.",
+      "$comment": "If there is multiple values one is picked on random.",
+      "type": ["string", "null"]
+    },
+    "deliveryDestination": {
+      "description": "Where the form will be delivered.",
+      "$comment": "https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/form/enums/DeliveryDestination.java",
+      "type": "string",
+      "enum": ["TSD","EDUCLOUD"]
+    },
+    "collectsPersonalData": {
+      "description": "Does the form collect personal data.",
+      "type": "boolean"
+    },
+    "sensitivePersonalDataCollected": {
+      "description": "Has sensitive data been collected.",
+      "type": "boolean"
+    },
+  },
+  "$defs": {
+    "editor": {
+      "type": "object",
+      "additionalProperties": false,
+	"required": ["username", "type", "personId"],
+      "properties": {
+        "name": {
+          "description": "Name of the editor.",
+          "type": "string"
+        },
+        "email": {
+          "description": "Email of the editor.",
+          "type": "string"
+        },
+        "type": {
+          "description": "User type",
+          "$comment": "See https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/person/enums/UserType.java",
+          "type": "string"
+        },
+        "personId": {
+          "description": "Unique identifier for this person.",
+          "type": "number"
+        },
+        "username": {
+          "description": "Username of the editor.",
+          "type": "string"
+        }
+      }
+    },
+    "element": {
+      "description": "Elements of the skjema.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sequence", "mandatory"],
+      "properties": {
+        "text": {
+          "description": "The text of the element, e.g. question text or title for a matrix.",
+          "type": "string"
+        },
+        "title": {
+          "description": "Same content as text. Deprecated.",
+          "type": "string"
+        },
+        "sequence": {
+          "description": "Which question number is this.",
+          "type": "number"
+        },
+        "dateFormat": {
+          "$ref": "#/$defs/dateFormat"
+        },
+        "description": {
+          "description": "Description of the element.",
+          "type": "string"
+        },
+        "elementType": {
+          "$ref": "#/$defs/elementType"
+        },
+        "answerOptions": {
+          "description": "Answer options.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/answerOption"
+          }
+        },
+        "externalElementId": {
+          "description": "Codebook key for this element",
+          "type": "string"
+        },
+        "subElements": {
+          "type": "array",
+          "items": [{ "$ref": "#/$defs/subElement" }]
+        },
+        "nationalIdNumberType": {
+          "description": "Enum specifying the ID format",
+          "type": "string"
+        },
+      }
+    },
+    "subElement": {
+      "description": "SubElements of an element.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sequence", "mandatory"],
+      "properties": {
+        "text": {
+          "description": "Question text.",
+          "type": "string"
+        },
+        "sequence": {
+          "description": "Which question number is this.",
+          "type": "number"
+        },
+        "dateFormat": {
+          "$ref": "#/$defs/dateFormat"
+        },
+        "description": {
+          "description": "Description of the element.",
+          "type": "string"
+        },
+        "elementType": {
+          "$ref": "#/$defs/elementType"
+        },
+        "answerOptions": {
+          "description": "Answer options.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/answerOption"
+          }
+        },
+        "externalElementId": {
+          "description": "Codebook key for this element.",
+          "type": "string"
+        },
+        "nationalIdNumberType": {
+          "description": "Enum specifying the ID format.",
+          "type": "string"
+        },
+      }
+    },
+    "answerOption": {
+      "description": "Contained when question has multiple possible answers.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "text": {
+          "description": "Text value for the answer option.",
+          "type": "string"
+        },
+        "sequence": {
+          "description": "Which answer number is this.",
+          "type": "number"
+        },
+        "externalAnswerOptionId": {
+          "description": "Codebook value for this answer option.",
+          "type": "string"
+        }
+      }
+    },
+    "elementType": {
+      "description": "Nettskjema question types.",
+      "$comment": "https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/form/enums/ElementType.java",
+      "type": "string",
+      "enum": [
+        "ATTACHMENT",
+        "CHECKBOX",
+        "DATE",
+        "EMAIL",
+        "HEADING",
+        "IMAGE",
+        "LINEAR_SCALE",
+        "MATRIX_CHECKBOX",
+        "MATRIX_RADIO",
+        "NAME",
+        "NATIONAL_ID_NUMBER",
+        "NUMBER",
+        "PAGE_BREAK",
+        "PHONE",
+        "QUESTION",
+        "QUESTION_MULTILINE",
+        "RADIO",
+        "SELECT",
+        "SUBMISSION_REFERENCE",
+        "TEXT",
+        "USERNAME"
+      ]
+    },
+    "dateFormat": {
+      "description": "Type of date collected.",
+      "$comment": "https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/form/enums/DateFormat.java",
+      "type": "string",
+      "enum": ["DATE", "TIME", "DATE_TIME"]
+    }
+  }
+}
