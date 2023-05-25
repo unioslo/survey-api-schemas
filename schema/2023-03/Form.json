@@ -223,6 +223,10 @@
           "description": "Enum specifying the ID format",
           "type": "string"
         },
+        "isAnswerHashed": {
+          "description": "Boolean specifying if the answer should be hashed or not.",
+          "type": "boolean"
+        }
       }
     },
     "subElement": {
