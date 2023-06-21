@@ -146,6 +146,10 @@
       "description": "Has sensitive data been collected.",
       "type": "boolean"
     },
+    "generatedDate": {
+      "description": "When this form definition was generated.",
+      "type": "string"
+    }
   },
   "$defs": {
     "editor": {
