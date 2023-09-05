@@ -183,7 +183,7 @@
       "required": ["sequence", "mandatory"],
       "properties": {
         "text": {
-          "description": "The text of the element, e.g. question text or title for a matrix.",
+          "description": "The text of the element, e.g. question text or title for a matrix. Can contain HTML entities and tags.",
           "type": "string"
         },
         "title": {
