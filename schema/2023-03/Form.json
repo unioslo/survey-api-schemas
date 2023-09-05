@@ -183,7 +183,7 @@
       "required": ["sequence", "mandatory"],
       "properties": {
         "text": {
-          "description": "The text of the element, e.g. question text or title for a matrix. Can contain HTML entities and tags.",
+          "description": "The text of the element, e.g. question text or title for a matrix. May contain HTML entities and tags.",
           "type": "string"
         },
         "title": {
@@ -198,7 +198,7 @@
           "$ref": "#/$defs/dateFormat"
         },
         "description": {
-          "description": "Description of the element.",
+          "description": "Description of the element. May contain HTML entities and tags.",
           "type": "string"
         },
         "elementType": {
@@ -236,7 +236,7 @@
       "required": ["sequence", "mandatory"],
       "properties": {
         "text": {
-          "description": "Question text.",
+          "description": "Question text. May contain HTML entities and tags.",
           "type": "string"
         },
         "sequence": {
@@ -247,7 +247,7 @@
           "$ref": "#/$defs/dateFormat"
         },
         "description": {
-          "description": "Description of the element.",
+          "description": "Description of the element. May contain HTML entities and tags.",
           "type": "string"
         },
         "elementType": {
@@ -277,7 +277,7 @@
       "required": [],
       "properties": {
         "text": {
-          "description": "Text value for the answer option.",
+          "description": "Text value for the answer option. May contain HTML entities and tags.",
           "type": "string"
         },
         "sequence": {
