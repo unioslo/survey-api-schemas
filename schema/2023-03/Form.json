@@ -230,6 +230,13 @@
         "isAnswerHashed": {
           "description": "Boolean specifying if the answer should be hashed or not.",
           "type": "boolean"
+        },
+        "answerOptionsVisibilityFilter": {
+          "description": "List of answerOptions that will proc the visibility of this element",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/answerOption"
+          }
         }
       }
     },
