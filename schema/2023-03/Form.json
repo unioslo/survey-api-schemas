@@ -232,11 +232,9 @@
           "type": "boolean"
         },
         "answerOptionsVisibilityFilter": {
-          "description": "List of answerOptions that will proc the visibility of this element",
+          "description": "Which answerOptionsVisibilityFilter this element is depenent on to be visible",
           "type": "array",
-          "items": {
-            "$ref": "#/$defs/answerOption"
-          }
+          "items": [{ "$ref": "#/$defs/answerOptionsVisibilityFilter" }]
         }
       }
     },
@@ -334,6 +332,12 @@
       "$comment": "https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/form/enums/DateFormat.java",
       "type": "string",
       "enum": ["DATE", "TIME", "DATE_TIME"]
+    },
+    "answerOptionsVisibilityFilter": {
+      "description": "Contains the codebook value of another element and its answer option id that this element is dependent on",
+      "type": "object",
+      "externalElementId": "string",
+      "externalAnswerOptionId": "string"
     }
   }
 }
