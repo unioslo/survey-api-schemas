@@ -1,3 +1,5 @@
+include mk_podman.mk
+
 all: bundle
 
 # list of files that need to be bundled
