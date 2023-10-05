@@ -74,6 +74,10 @@
                 },
                 "respondent": {
                     "$ref": "#/$defs/respondent"
+                },
+                "imported_from_legacy": {
+                    "description": "If this submission has been imported from legacy CSVs.",
+                    "const": true
                 }
             }
         },
