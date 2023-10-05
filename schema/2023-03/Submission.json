@@ -77,7 +77,6 @@
                 },
                 "imported_from_legacy": {
                     "description": "If this submission has been imported from legacy CSVs.",
-                    "type": "boolean",
                     "const": true
                 }
             }
