@@ -277,7 +277,7 @@
         "nationalIdNumberType": {
           "description": "Enum specifying the ID format.",
           "type": "string"
-        },
+        }
       }
     },
     "answerOption": {
