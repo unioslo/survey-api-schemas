@@ -232,7 +232,7 @@
           "type": "boolean"
         },
         "answerOptionsVisibilityFilter": {
-          "description": "Which answerOptionsVisibilityFilter this element is depenent on to be visible",
+          "description": "List of answerOptionIDs. This element becomes visible if one of the options is selected.",
           "type": "array",
           "items": [{ "$ref": "#/$defs/answerOptionsVisibilityFilter" }],
           "minItems": 1
