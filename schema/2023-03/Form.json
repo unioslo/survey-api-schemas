@@ -337,8 +337,12 @@
     "answerOptionsVisibilityFilter": {
       "description": "Contains the codebook value of another element and its answer option id that this element is dependent on",
       "type": "object",
-      "externalElementId": "string",
-      "externalAnswerOptionId": "string"
+      "additionalProperties": false,
+      "required": ["externalElementId", "externalAnswerOptionId"],
+      "properties": {
+        "externalElementId": "string",
+        "externalAnswerOptionId": "string"
+      }
     }
   }
 }
