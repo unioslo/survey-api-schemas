@@ -234,7 +234,8 @@
         "answerOptionsVisibilityFilter": {
           "description": "Which answerOptionsVisibilityFilter this element is depenent on to be visible",
           "type": "array",
-          "items": [{ "$ref": "#/$defs/answerOptionsVisibilityFilter" }]
+          "items": [{ "$ref": "#/$defs/answerOptionsVisibilityFilter" }],
+          "minItems": 1
         }
       }
     },
