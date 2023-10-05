@@ -15,7 +15,13 @@ To update the bundle:
 make bundle
 ```
 
+or
+
+```
+make podman_bundle
+```
+
 #### Requirements
 
 * make
-* node/npm
+* node+npm or podman
