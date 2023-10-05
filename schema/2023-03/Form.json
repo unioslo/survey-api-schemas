@@ -234,7 +234,7 @@
         "answerOptionsVisibilityFilter": {
           "description": "List of answerOptionIDs. This element becomes visible if one of the options is selected.",
           "type": "array",
-          "items": [{ "$ref": "#/$defs/answerOptionsVisibilityFilter" }],
+          "items": [{ "$ref": "#/$defs/visibilityFilterItem" }],
           "minItems": 1
         }
       }
@@ -334,11 +334,15 @@
       "type": "string",
       "enum": ["DATE", "TIME", "DATE_TIME"]
     },
-    "answerOptionsVisibilityFilter": {
+    "visibilityFilterItem": {
       "description": "Contains the codebook value of another element and its answer option id that this element is dependent on",
       "type": "object",
-      "externalElementId": "string",
-      "externalAnswerOptionId": "string"
+      "additionalProperties": false,
+      "required": ["externalElementId", "externalAnswerOptionId"],
+      "properties": {
+        "externalElementId": "string",
+        "externalAnswerOptionId": "string"
+      }
     }
   }
 }
