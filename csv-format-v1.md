@@ -29,6 +29,10 @@ in the element with codebook value `var1`:
 "28508117";"2023-08-29T10:52:11.828301592+02:00";"this is a ""quote""";"6473"
 ```
 
+## Ordering
+
+The rows are ordered by `$submission_id` in ascending order.
+
 ## Header naming
 
 ### Hardcoded header names
@@ -38,6 +42,7 @@ in the element with codebook value `var1`:
 | `$submission_id`     | Unique identifier for each answer                |
 | `$created`           | Date and time this submission was submitted      |
 | `$forwarded_to_form` | Which form the participant has been forwarded to |
+| `$signed`            | Status for delivery of signature                 |
 | `$answer_time_ms`    | Time spent by participant to complete the survey |
 
 ### Headers from survey elements
@@ -101,9 +106,32 @@ The headers appear in the following order:
 3. `$forwarded_to_form` if the form forwards to other forms, omitted if not.
 4. `$signed` if the document requires digital signing, omitted if not.
 5. Elements of the survey, in the order they appear in the survey itself.
-6. `$answer_time`
+6. `$answer_time_ms`
 
 ### Element values
+
+#### $submission_id
+
+Contains the submission id.
+
+#### $created
+
+Contains the date of the submission in ISO 8601 format with timezone. If the form is not set to
+collect personal data, the timestamp is rounded last midnight.
+
+Example: `"2023-10-17T13:33:48.666743778+02:00"`
+
+#### $forwarded_to_form
+
+Contains the FORM_ID of the form the user was forwarded to.
+
+#### $signed
+
+Contains a 1 if the signature has been delivered, and 0 not delivered.
+
+#### $answer_time_ms
+
+Contains the time the participant took to answer the survey, in milliseconds.
 
 #### QUESTION
 
