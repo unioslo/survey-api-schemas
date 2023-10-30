@@ -239,17 +239,22 @@ Example (with headers):
 
 The elements that have been checked will have a value of 1.
 
+If the element has been hidden from the participant, the value will be empty.
+
 Example (with headers):
 
 ```text
 "var1.1";"var1.2";"var1.3"
 "0";"1";"0"
-"0";"0";"0"
+"1";"1";"1"
+"";"";""
 ```
 
 #### MATRIX_CHECKBOX
 
 The elements that have been checked will have a value of 1.
+
+If the element has been hidden from the participant, the value will be empty.
 
 Example (with headers):
 
@@ -257,4 +262,5 @@ Example (with headers):
 "matrix_c.row1.col1";"matrix_c.row1.col2";"matrix_c.row2.col1";"matrix_c.row2.col2"
 "0";"0";"0";"0"
 "1";"0";"1";"0"
+"";"";"";""
 ```
