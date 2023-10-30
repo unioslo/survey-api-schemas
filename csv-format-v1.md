@@ -7,7 +7,7 @@
 | delimiter                   | `;`     |
 | double quote                | `true`  |
 | quote character             | `"`     |
-| line separator              | `\n`    |
+| line separator              | `\r\n`  |
 | whitespace before separator | `false` |
 | whitespace after separator  | `false` |
 
