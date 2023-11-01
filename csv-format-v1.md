@@ -11,6 +11,8 @@
 | whitespace before separator | `false` |
 | whitespace after separator  | `false` |
 
+The last row containing data in the CSV file should end with `\r\n`.
+
 ### Example
 
 ```csv
