@@ -16,7 +16,7 @@ The last row containing data in the CSV file should end with `\r\n`.
 ### Example
 
 ```csv
-"$submission_id";"$created";"var1";"$answer_time"
+"$submission_id";"$created";"var1";"$answer_time_ms"
 "28508117";"2023-08-29T10:52:11.828301592+02:00";"abc 123";"6473"
 ```
 
@@ -27,7 +27,7 @@ by two quote character. In this example, the user has entered `this is a "quote"
 in the element with codebook value `var1`:
 
 ```csv
-"$submission_id";"$created";"var1";"$answer_time"
+"$submission_id";"$created";"var1";"$answer_time_ms"
 "28508117";"2023-08-29T10:52:11.828301592+02:00";"this is a ""quote""";"6473"
 ```
 
