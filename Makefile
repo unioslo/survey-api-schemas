@@ -3,9 +3,9 @@ include mk_podman.mk
 all: bundle
 
 # list of files that need to be bundled
-src_files := $(wildcard schema/2*/Submission.json)
+src_files := $(wildcard schema/2*/Submission.json schema/2*/answers/matrixCheckbox.json)
 # convert to target paths
-dst_files := $(patsubst %Submission.json,%Submission.bundle.json, $(src_files))
+dst_files := $(patsubst %.json,%.bundle.json, $(src_files))
 
 
 .PHONY: bundle
