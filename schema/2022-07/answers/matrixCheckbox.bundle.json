@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "matrixCheckbox.json",
+  "description": "Nettskjema form answer for type MATRIX_CHECKBOX",
+  "type": "object",
+  "propertyNames": {
+    "pattern": "^[A-Za-z0-9_]+"
+  },
+  "additionalProperties": false,
+  "patternProperties": {
+    "^[A-Za-z0-9_]+": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$id": "checkbox.json",
+      "description": "Nettskjema form answer for type CHECKBOX",
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Za-z0-9_]+"
+      },
+      "additionalProperties": false,
+      "patternProperties": {
+        "^[A-Za-z0-9_]+": {
+          "description": "A single checkbox answer with externalElementId as keys.",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
