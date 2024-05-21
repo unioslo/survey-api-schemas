@@ -72,20 +72,20 @@ language sql;
 
 
 -- just print form IDs that need an update
-create or replace procedure make_report(project_source e_project_source)
+create or replace procedure loop_projects(project_source e_project_source, dry_run boolean)
 language plpgsql
 as $$
 declare temprow record;
 begin
   
-  for temprow in 
+  for temprow in
   (
     select * from 
     (
       with project_ids(project_id) as (
         select get_projectids('tsd')
         -- values('p11')
-      )      
+      )
       select formids.form_id, project_id, get_updated_metadata_entry(project_id, form_id) as info 
       from (
         select project_id, get_formids(project_id) from project_ids
@@ -95,28 +95,47 @@ begin
     where info is not null
   )
   loop
-    raise notice 'project=% form=% updated_metadata%', temprow.project_id, temprow.form_id, temprow.info;
-    /*
-     * TODO: insert
-     */
+    raise notice ' dry_run=% project=% form=% updated_metadata=%', dry_run, temprow.project_id, temprow.form_id, temprow.info;
+    if (dry_run is not true) then
+      execute format (
+        $fmt$
+          insert into %s."%s_metadata" ("data") values ('%s')
+        $fmt$
+        , temprow.project_id
+        , temprow.form_id
+        , temprow.info
+      );
+    end if;
   end loop;
+end
+$$;
+
+create or replace procedure update_all_metadata(project_source e_project_source)
+language plpgsql
+as $$
+begin 
+  call loop_projects(project_source, false);
+end
+$$;
+
+create or replace procedure make_report(project_source e_project_source)
+language plpgsql
+as $$
+begin 
+  call loop_projects(project_source, true);
 end
 $$;
 
 
 
-
 call make_report('tsd');
+-- call update_all_metadata('tsd');
 
 
 
-
-/*
-notes
---select get_updated_metadata('p11', '1152425');
---select get_updated_metadata('p11', '106677');
--- no modified date: 1255512_metadata
--- one modified date: 1209610_metadata
--- modified dates 892860 : ["2023-02-01T12:29:06.881+0100", "2023-02-01T12:30:28.642+0100", "2023-02-01T12:30:41.808+0100", "2023-02-01T12:30:52.005+0100", "2023-03-14T15:30:23.511+0100", "2023-03-14T15:48:43.310+0100", "2023-03-14T15:48:43", "2023-03-14T15:52:03.437+0100", "2023-03-14T15:55:08", "2023-06-09T12:04:26.829+0200", "2023-06-09T12:17:03.938+0200", "2023-03-14T15:55:08.752+0100", "2023-06-09T12:05:03.174+0200", "2023-06-09T12:06:39.086+0200", "2023-06-20T11:00:43.782+0200", "2023-06-20T11:00:47.873+0200", "2023-09-06T10:24:51.219+0200", "2023-09-07T08:20:35.004+0200", "2023-09-07T09:09:03.157+0200", "2023-09-07T10:32:12.518+0200"]
-
- */
+drop type if exists e_project_source cascade;
+drop procedure if exists update_all_metadata cascade;
+drop procedure if exists make_report cascade;
+drop function if exists get_formids cascade;
+drop function if exists get_projectids cascade;
+drop function if exists get_updated_metadata_entry cascade;
