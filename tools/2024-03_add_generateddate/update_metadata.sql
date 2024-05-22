@@ -113,24 +113,27 @@ $$;
 create or replace procedure update_all_metadata(project_source e_project_source)
 language plpgsql
 as $$
-begin 
+begin
+  raise notice 'start update_all_metadata';
   call loop_projects(project_source, false);
+  raise notice 'end update_all_metadata';
 end
 $$;
 
 create or replace procedure make_report(project_source e_project_source)
 language plpgsql
 as $$
-begin 
+begin
+  raise notice 'start make_report';
   call loop_projects(project_source, true);
+  raise notice 'end make_report';
 end
 $$;
 
 
-
 call make_report('tsd');
 -- call update_all_metadata('tsd');
-
+-- call make_report('tsd');
 
 
 drop type if exists e_project_source cascade;
