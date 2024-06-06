@@ -99,7 +99,7 @@ begin
     if (dry_run is not true) then
       execute format (
         $fmt$
-          insert into %s."%s_metadata" ("data") values ('%s')
+          insert into %s."%s_metadata" ("data") values ($json$%s$json$)
         $fmt$
         , temprow.project_id
         , temprow.form_id
