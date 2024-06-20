@@ -83,7 +83,7 @@ begin
     select * from 
     (
       with project_ids(project_id) as (
-        select get_projectids('tsd')
+        select get_projectids(project_source)
         -- values('p11')
       )
       select formids.form_id, project_id, get_updated_metadata_entry(project_id, form_id) as info 
