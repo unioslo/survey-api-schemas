@@ -10,6 +10,7 @@
     "formId",
     "editors",
     "elements",
+    "version",
     "createdBy",
     "openFrom",
     "modifiedBy",
@@ -37,6 +38,10 @@
     "formId": {
       "description": "Unique identifier for the skjema.",
       "type": "number"
+    },
+    "version": {
+      "description": "An identifier which format is used. Can be used to find correct version of this schema.",
+      "const": "2024-09"
     },
     "datasets": {
       "description": "What datasets should be generated for this form.",

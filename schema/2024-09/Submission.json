@@ -83,7 +83,7 @@
         },
         "version": {
             "description": "An identifier which format is used. Can be used to find correct version of this schema.",
-            "type": "string"
+            "const": "2024-09"
         }
     },
     "$defs": {
