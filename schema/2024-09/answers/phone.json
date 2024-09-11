@@ -1,0 +1,6 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "phone.json",
+    "description": "Nettskjema form answer for type PHONE",
+    "type": ["string", "null"]
+}

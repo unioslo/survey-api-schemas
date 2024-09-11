@@ -124,7 +124,8 @@
         "ID_PORTEN_LEVEL_3",
         "ID_PORTEN_LEVEL_3_SIGNING",
         "ID_PORTEN_LEVEL_4",
-        "ID_PORTEN_LEVEL_4_SIGNING"
+        "ID_PORTEN_LEVEL_4_SIGNING",
+        "HELSENORGE"
       ]
     },
     "afterDeliveryForwardFormIds": {
@@ -236,6 +237,10 @@
           "type": "array",
           "items": [{ "$ref": "#/$defs/visibilityFilterItem" }],
           "minItems": 1
+        },
+        "numberOfDecimals": {
+          "description": "How many decimals if it is a number element.",
+          "type": "number"
         }
       }
     },
@@ -305,6 +310,7 @@
       "$comment": "https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/form/enums/ElementType.java",
       "type": "string",
       "enum": [
+        "ACCORDION",
         "ATTACHMENT",
         "CHECKBOX",
         "DATE",
