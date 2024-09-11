@@ -3,6 +3,9 @@
 
 Documentation for the integration.
 
+## Updating new versions
+One should discuss if the changes should be a version upgrade or not. If it does need a version upgrade, first make a pull request copying the old version. Then make the changes to that to prevent a huge diff which makes it harder to read where the changes is.
+
 ## Dev
 
 ### Update bundle
