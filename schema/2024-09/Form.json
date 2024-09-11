@@ -11,6 +11,7 @@
     "editors",
     "elements",
     "version",
+    "version_minor",
     "createdBy",
     "openFrom",
     "modifiedBy",
@@ -42,6 +43,10 @@
     "version": {
       "description": "An identifier which format is used. Can be used to find correct version of this schema.",
       "const": "2024-09"
+    },
+    "version_minor": {
+        "description": "Minor version of the schema. Increased for non-breaking changes.",
+        "const": 0
     },
     "datasets": {
       "description": "What datasets should be generated for this form.",
