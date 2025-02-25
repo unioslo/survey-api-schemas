@@ -46,9 +46,9 @@ BEGIN
                      jsonb_each(data->'answers') AS n(key, value)
                 WHERE n.value = '"undefined"';
                 $fmt$,
-                project_id, form_id, project_id, form_id 
+                project_id, form_id, project_id, form_id
             );
-            
+
             EXECUTE query;
         END LOOP;
     END LOOP;
@@ -67,9 +67,9 @@ BEGIN
     LOOP
         query := FORMAT(
             $fmt$
-            SELECT value->'elementType' as element_type from %I."%s/metadata", 
+            SELECT value->'elementType' as element_type from %I."%s/metadata",
                 LATERAL jsonb_array_elements(data->'elements') as elem
-                    WHERE elem->'externalElementId' = '"%s"';
+                    WHERE elem->'externalElementId' = '"%s"' AND data ? 'generatedDate' ORDER BY data->'generatedDate' DESC LIMIT 1;
             $fmt$,
             rec.project_id, rec.form_id, rec.key
         );
