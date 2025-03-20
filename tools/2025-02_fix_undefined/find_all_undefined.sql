@@ -44,7 +44,12 @@ BEGIN
                 SELECT data->'metadata'->'submission_id' as submission_id, n.key as key, n.value as value, %L as project_id, %L as form_id
                 FROM %I.%I,
                      jsonb_each(data->'answers') AS n(key, value)
-                WHERE n.value = '"undefined"';
+                WHERE
+                    data ? 'answers' AND
+                    data ? 'metadata' AND
+                    data -> 'metadata' ? 'submission_id' AND
+                    jsonb_typeof(data -> 'answers') = 'object' AND
+                    n.value = '"undefined"';
                 $fmt$,
                 project_id, form_id, project_id, form_id
             );
@@ -69,7 +74,14 @@ BEGIN
             $fmt$
             SELECT value->'elementType' as element_type from %I."%s/metadata",
                 LATERAL jsonb_array_elements(data->'elements') as elem
-                    WHERE elem->'externalElementId' = '"%s"' AND data ? 'generatedDate' ORDER BY data->'generatedDate' DESC LIMIT 1;
+                    WHERE
+                        data ? 'elements' AND
+                        jsonb_typeof(data -> 'elements') = 'array' AND
+                        elem ? 'externalElementId' AND
+                        elem->'externalElementId' = '"%s"' AND
+                        value ? 'elementType' AND
+                        data ? 'generatedDate'
+                        ORDER BY data->'generatedDate' DESC LIMIT 1;
             $fmt$,
             rec.project_id, rec.form_id, rec.key
         );
