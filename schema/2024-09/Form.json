@@ -46,7 +46,7 @@
     },
     "versionMinor": {
         "description": "Minor version of the schema. Increased for non-breaking changes.",
-        "const": 0
+        "const": 1
     },
     "datasets": {
       "description": "What datasets should be generated for this form.",
@@ -312,6 +312,10 @@
         "externalAnswerOptionId": {
           "description": "Codebook value for this answer option.",
           "type": "string"
+        },
+        "redirectToForm": {
+          "description": "",
+          "type": ["number", "null"]
         }
       }
     },
@@ -359,6 +363,10 @@
         "externalElementId": "string",
         "externalAnswerOptionId": "string"
       }
+    },
+    "useForRedirectToForm": {
+      "description": "Is redirect to another form enabled for this element? If so, at least one answer option will have the `redirectToForm` with form id",
+      "type": "boolean"
     }
   }
 }
