@@ -46,7 +46,7 @@
     },
     "versionMinor": {
         "description": "Minor version of the schema. Increased for non-breaking changes.",
-        "const": 0
+        "const": 1
     },
     "datasets": {
       "description": "What datasets should be generated for this form.",
@@ -139,7 +139,7 @@
       ]
     },
     "afterDeliveryForwardFormIds": {
-      "description": "A comma-separated list of formIds for forwarding after delivery.",
+      "description": "A comma-separated list of formIds for forwarding after delivery. If both `redirectToForm` and `afterDeliveryForwardFormIds` are set, `redirectToForm will have priority after delivery.",
       "$comment": "If there is multiple values one is picked on random.",
       "type": ["string", "null"]
     },
@@ -312,6 +312,10 @@
         "externalAnswerOptionId": {
           "description": "Codebook value for this answer option.",
           "type": "string"
+        },
+        "redirectToForm": {
+          "description": "The form id the user will be redirected to after delivery, if this answer option was picked. If a form id is defined the element it belongs to will always have the `useForRedirectToForm` set to true. If both `redirectToForm` and `afterDeliveryForwardFormIds` is set, `useForRedirectToForm` has priority after delivery.",
+          "type": "number",
         }
       }
     },
@@ -359,6 +363,10 @@
         "externalElementId": "string",
         "externalAnswerOptionId": "string"
       }
+    },
+    "useForRedirectToForm": {
+      "description": "Is redirect to another form enabled for this element? If so, at least one answer option will have the `redirectToForm` with form id",
+      "type": "boolean"
     }
   }
 }
