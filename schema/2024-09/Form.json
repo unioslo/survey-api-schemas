@@ -46,7 +46,7 @@
     },
     "versionMinor": {
         "description": "Minor version of the schema. Increased for non-breaking changes.",
-        "const": 1
+        "const": 2
     },
     "datasets": {
       "description": "What datasets should be generated for this form.",
