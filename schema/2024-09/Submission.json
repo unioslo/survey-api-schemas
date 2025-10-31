@@ -23,23 +23,57 @@
                 "^[A-Za-z0-9_]+": {
                     "description": "A single answer with externalElementId as keys.",
                     "oneOf": [
-                        {"$ref": "answers/attachment.json"},
-                        {"$ref": "answers/checkbox.json"},
-                        {"$ref": "answers/date.json"},
-                        {"$ref": "answers/email.json"},
-                        {"$ref": "answers/linearScale.json"},
-                        {"$ref": "answers/matrixCheckbox.json"},
-                        {"$ref": "answers/matrixRadio.json"},
-                        {"$ref": "answers/name.json"},
-                        {"$ref": "answers/nationalId.json"},
-                        {"$ref": "answers/number.json"},
-                        {"$ref": "answers/phone.json"},
-                        {"$ref": "answers/question.json"},
-                        {"$ref": "answers/questionMultiline.json"},
-                        {"$ref": "answers/radio.json"},
-                        {"$ref": "answers/select.json"},
-                        {"$ref": "answers/submissionReference.json"},
-                        {"$ref": "answers/username.json"}
+                        {
+                            "$ref": "answers/attachment.json"
+                        },
+                        {
+                            "$ref": "answers/checkbox.json"
+                        },
+                        {
+                            "$ref": "answers/date.json"
+                        },
+                        {
+                            "$ref": "answers/email.json"
+                        },
+                        {
+                            "$ref": "answers/linearScale.json"
+                        },
+                        {
+                            "$ref": "answers/matrixCheckbox.json"
+                        },
+                        {
+                            "$ref": "answers/matrixRadio.json"
+                        },
+                        {
+                            "$ref": "answers/name.json"
+                        },
+                        {
+                            "$ref": "answers/nationalId.json"
+                        },
+                        {
+                            "$ref": "answers/number.json"
+                        },
+                        {
+                            "$ref": "answers/phone.json"
+                        },
+                        {
+                            "$ref": "answers/question.json"
+                        },
+                        {
+                            "$ref": "answers/questionMultiline.json"
+                        },
+                        {
+                            "$ref": "answers/radio.json"
+                        },
+                        {
+                            "$ref": "answers/select.json"
+                        },
+                        {
+                            "$ref": "answers/submissionReference.json"
+                        },
+                        {
+                            "$ref": "answers/username.json"
+                        }
                     ]
                 }
             }
@@ -88,7 +122,7 @@
         },
         "version_minor": {
             "description": "Minor version of the schema. Increased for non-breaking changes.",
-            "const": 0
+            "const": 1
         }
     },
     "$defs": {
@@ -120,6 +154,51 @@
                 },
                 "user_name": {
                     "description": "User name assigned to the respondent by their IdP.",
+                    "type": "string"
+                },
+                "task_id": {
+                    "description": "Identifier used to convey task completion in the Helsenorge-integration.",
+                    "type": "string"
+                },
+                "representation": {
+                    "$ref": "#/$defs/representation"
+                }
+            }
+        },
+        "representation": {
+            "description": "Info about representation when respondent is being represented by another person. Always ommited if there are no representation involved.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "representation_type",
+                "name_authorizer",
+                "pid_authorizer",
+                "representative_name",
+                "representative_pid"
+            ],
+            "properties": {
+                "representation_type": {
+                    "description": "How the representative are represented, either by a parent or by authority.",
+                    "type": "string",
+                    "enum": [
+                        "PARENT",
+                        "AUTHORITY"
+                    ]
+                },
+                "name_authorizer": {
+                    "description": "Name of person who is being represented.",
+                    "type": "string"
+                },
+                "pid_authorizer": {
+                    "description": "National personal identifier of person who is being represented.",
+                    "type": "string"
+                },
+                "representative_name": {
+                    "description": "Name of person who represents.",
+                    "type": "string"
+                },
+                "representative_pid": {
+                    "description": "National person identifier of person who represents, this value is always equal to personal_identifier.",
                     "type": "string"
                 }
             }
