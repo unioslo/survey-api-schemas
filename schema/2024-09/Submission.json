@@ -122,7 +122,7 @@
         },
         "version_minor": {
             "description": "Minor version of the schema. Increased for non-breaking changes.",
-            "const": 1
+            "const": 2
         }
     },
     "$defs": {
@@ -166,7 +166,7 @@
             }
         },
         "representation": {
-            "description": "Info about representation when respondent is being represented by another person. Always ommited if there are no representation involved.",
+            "description": "Info about the representation when a respondent is being represented by another person. Always ommited if there are no representation involved.",
             "type": "object",
             "additionalProperties": false,
             "required": [
