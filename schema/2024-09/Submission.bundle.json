@@ -277,7 +277,7 @@
         },
         "forwarded_to_form": {
           "description": "What form was this form forwarding to?",
-          "type": "number"
+          "type": "integer"
         },
         "answer_time": {
           "description": "How many seconds did it take to answer the form.",
@@ -285,10 +285,10 @@
         },
         "submission_id": {
           "description": "Unique identifier for this submission.",
-          "type": "number"
+          "type": "integer"
         },
         "number_of_attachments": {
-          "type": "number"
+          "type": "integer"
         },
         "respondent": {
           "description": "Info about the respondent of the nettskjema.",
@@ -319,6 +319,48 @@
             "user_name": {
               "description": "User name assigned to the respondent by their IdP.",
               "type": "string"
+            },
+            "task_id": {
+              "description": "Identifier used to convey task completion in the Helsenorge-integration.",
+              "type": "string"
+            },
+            "representation": {
+              "description": "Info about the representation when a respondent is being represented by another person. Always ommited if there are no representation involved.",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "representation_type",
+                "name_authorizer",
+                "pid_authorizer",
+                "representative_name",
+                "representative_pid"
+              ],
+              "properties": {
+                "representation_type": {
+                  "description": "How the representative are represented, either by a parent or by authority.",
+                  "type": "string",
+                  "enum": [
+                    "PARENT",
+                    "AUTHORITY"
+                  ]
+                },
+                "name_authorizer": {
+                  "description": "Name of person who is being represented.",
+                  "type": "string"
+                },
+                "pid_authorizer": {
+                  "description": "National personal identifier of person who is being represented.",
+                  "type": "string"
+                },
+                "representative_name": {
+                  "description": "Name of person who represents.",
+                  "type": "string"
+                },
+                "representative_pid": {
+                  "description": "National person identifier of person who represents, this value is always equal to personal_identifier.",
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -334,7 +376,7 @@
     },
     "version_minor": {
       "description": "Minor version of the schema. Increased for non-breaking changes.",
-      "const": 0
+      "const": 2
     }
   },
   "$defs": {
@@ -366,6 +408,86 @@
         },
         "user_name": {
           "description": "User name assigned to the respondent by their IdP.",
+          "type": "string"
+        },
+        "task_id": {
+          "description": "Identifier used to convey task completion in the Helsenorge-integration.",
+          "type": "string"
+        },
+        "representation": {
+          "description": "Info about the representation when a respondent is being represented by another person. Always ommited if there are no representation involved.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "representation_type",
+            "name_authorizer",
+            "pid_authorizer",
+            "representative_name",
+            "representative_pid"
+          ],
+          "properties": {
+            "representation_type": {
+              "description": "How the representative are represented, either by a parent or by authority.",
+              "type": "string",
+              "enum": [
+                "PARENT",
+                "AUTHORITY"
+              ]
+            },
+            "name_authorizer": {
+              "description": "Name of person who is being represented.",
+              "type": "string"
+            },
+            "pid_authorizer": {
+              "description": "National personal identifier of person who is being represented.",
+              "type": "string"
+            },
+            "representative_name": {
+              "description": "Name of person who represents.",
+              "type": "string"
+            },
+            "representative_pid": {
+              "description": "National person identifier of person who represents, this value is always equal to personal_identifier.",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "representation": {
+      "description": "Info about the representation when a respondent is being represented by another person. Always ommited if there are no representation involved.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "representation_type",
+        "name_authorizer",
+        "pid_authorizer",
+        "representative_name",
+        "representative_pid"
+      ],
+      "properties": {
+        "representation_type": {
+          "description": "How the representative are represented, either by a parent or by authority.",
+          "type": "string",
+          "enum": [
+            "PARENT",
+            "AUTHORITY"
+          ]
+        },
+        "name_authorizer": {
+          "description": "Name of person who is being represented.",
+          "type": "string"
+        },
+        "pid_authorizer": {
+          "description": "National personal identifier of person who is being represented.",
+          "type": "string"
+        },
+        "representative_name": {
+          "description": "Name of person who represents.",
+          "type": "string"
+        },
+        "representative_pid": {
+          "description": "National person identifier of person who represents, this value is always equal to personal_identifier.",
           "type": "string"
         }
       }
