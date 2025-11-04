@@ -315,7 +315,7 @@
         },
         "redirectToForm": {
           "description": "The form id the user will be redirected to after delivery, if this answer option was picked. If a form id is defined the element it belongs to will always have the `useForRedirectToForm` set to true. If both `redirectToForm` and `afterDeliveryForwardFormIds` is set, `useForRedirectToForm` has priority after delivery.",
-          "type": "number",
+          "type": "number"
         }
       }
     },
@@ -360,8 +360,14 @@
       "additionalProperties": false,
       "required": ["externalElementId", "externalAnswerOptionId"],
       "properties": {
-        "externalElementId": "string",
-        "externalAnswerOptionId": "string"
+        "externalElementId": {
+          "description": "Codebook key for element",
+          "type": "string"
+        },
+        "externalAnswerOptionId": {
+          "description": "Codebook value for answer option.",
+          "type": "string"
+        }
       }
     },
     "useForRedirectToForm": {
