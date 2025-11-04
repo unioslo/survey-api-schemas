@@ -38,7 +38,7 @@
     },
     "formId": {
       "description": "Unique identifier for the skjema.",
-      "type": "number"
+      "type": "integer"
     },
     "version": {
       "description": "An identifier which format is used. Can be used to find correct version of this schema.",
@@ -183,7 +183,7 @@
         },
         "personId": {
           "description": "Unique identifier for this person.",
-          "type": "number"
+          "type": "integer"
         },
         "username": {
           "description": "Username of the editor.",
@@ -207,7 +207,7 @@
         },
         "sequence": {
           "description": "Which question number is this.",
-          "type": "number"
+          "type": "integer"
         },
         "dateFormat": {
           "$ref": "#/$defs/dateFormat"
@@ -250,7 +250,7 @@
         },
         "numberOfDecimals": {
           "description": "How many decimals if it is a number element.",
-          "type": "number"
+          "type": "integer"
         }
       }
     },
@@ -266,7 +266,7 @@
         },
         "sequence": {
           "description": "Which question number is this.",
-          "type": "number"
+          "type": "integer"
         },
         "dateFormat": {
           "$ref": "#/$defs/dateFormat"
@@ -307,7 +307,7 @@
         },
         "sequence": {
           "description": "Which answer number is this.",
-          "type": "number"
+          "type": "integer"
         },
         "externalAnswerOptionId": {
           "description": "Codebook value for this answer option.",
@@ -315,7 +315,7 @@
         },
         "redirectToForm": {
           "description": "The form id the user will be redirected to after delivery, if this answer option was picked. If a form id is defined the element it belongs to will always have the `useForRedirectToForm` set to true. If both `redirectToForm` and `afterDeliveryForwardFormIds` is set, `useForRedirectToForm` has priority after delivery.",
-          "type": "number"
+          "type": "integer"
         }
       }
     },
