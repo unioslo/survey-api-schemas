@@ -91,7 +91,7 @@
     },
     "openFrom": {
       "description": "The date the form is opened.",
-      "type": "string"
+      "type": ["string", "null"]
     },
     "openTo": {
       "description": "The date the form is closed.",
