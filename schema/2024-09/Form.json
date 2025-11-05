@@ -170,8 +170,11 @@
         "type": ["string", "null"]
     },
     "netgroupsEditor": {
-        "description": "TODO",
-        "type": "TODO"
+        "description": "Groups with editor permissions.",
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/netgroup"
+        }
     },
     "editorsContactUrl": {
         "description": "Contact url for editor of the form.",
@@ -190,8 +193,11 @@
         "type": "TODO"
     },
     "netgroupsWithCopyPermission": {
-        "description": "TODO",
-        "type": "TODO"
+        "description": "Groups with copy-permissions.",
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/netgroup"
+        }
     },
     "personalDataPurposeDescription": {
         "description": "TODO",
@@ -234,6 +240,21 @@
           "type": "string"
         }
       }
+    },
+    "netgroup": {
+        "description": "Netgroup editor.",
+        "type": "object",
+        "required": ["netgroupId", "name"],
+        "properties": {
+            "netgroupId": {
+                "description": "Identifier for the netgroup.",
+                "type": "integer"
+            },
+            "name": {
+                "description": "Name of the netgroup.",
+                "type": "integer"
+            }
+        }
     },
     "element": {
       "description": "Elements of the skjema.",
