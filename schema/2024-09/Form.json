@@ -134,7 +134,8 @@
         "ID_PORTEN_LEVEL_3_SIGNING",
         "ID_PORTEN_LEVEL_4",
         "ID_PORTEN_LEVEL_4_SIGNING",
-        "HELSENORGE"
+        "HELSENORGE",
+        "HELSENORGE_SIGNING"
       ]
     },
     "afterDeliveryForwardFormIds": {
