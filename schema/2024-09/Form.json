@@ -146,7 +146,7 @@
       "description": "Where the form will be delivered.",
       "$comment": "https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/form/enums/DeliveryDestination.java",
       "type": "string",
-      "enum": ["TSD", "EDUCLOUD", "DATABASE"]
+      "enum": ["TSD", "EDUCLOUD", "DATABASE", "DATABASE_ENCRYPTED"]
     },
     "collectsPersonalData": {
       "description": "Does the form collect personal data.",
