@@ -162,7 +162,7 @@
     },
     "formType": {
         "description": "TODO",
-        "enum": ["HIGH_SECURITY", "TODO"]
+        "enum": ["DEFAULT", "HIGH_SECURITY", "SIGN_UP", "MULTIPLE_CHOICE", "COURSE_EVALUATION"]
     },
     "titleShort": {
         "description": "TODO",
