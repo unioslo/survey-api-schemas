@@ -159,6 +159,50 @@
     "generatedDate": {
       "description": "When this form definition was generated.",
       "type": "string"
+    },
+    "formType": {
+        "description": "TODO",
+        "enum": ["HIGH-SECURITY", "TODO"]
+    },
+    "titleShort": {
+        "description": "TODO",
+        "type": ["string", "null"]
+    },
+    "netgroupsEditor": {
+        "description": "TODO",
+        "type": "TODO"
+    },
+    "editorsContactUrl": {
+        "description": "Contact url for editor of the form.",
+        "type": ["string", "null"]
+    },
+    "maxSubmissionsForm": {
+        "description": "TODO",
+        "type": ["integer", "null"]
+    },
+    "editorsContactEmail": {
+        "description": "Contact email for the form.",
+        "type": ["integer", "null"]
+    },
+    "personsWithCopyPermission": {
+        "description": "TODO",
+        "type": "TODO"
+    },
+    "netgroupsWithCopyPermission": {
+        "description": "TODO",
+        "type": "TODO"
+    },
+    "personalDataPurposeDescription": {
+        "description": "TODO",
+        "type": ["null", "TODO"]
+    },
+    "personalDataPurposeDescription": {
+        "description": "TODO",
+        "type": ["null", "TODO"]
+    },
+    "personalDataSharedOutsideInstitutionWith": {
+        "description": "TODO",
+        "type": ["null", "TODO"]
     }
   },
   "$defs": {
@@ -225,6 +269,10 @@
             "$ref": "#/$defs/answerOption"
           }
         },
+        "elementId": {
+            "description": "Internal identifier for this element.",
+            "type": "integer"
+        },
         "externalElementId": {
           "description": "Codebook key for this element",
           "type": "string"
@@ -250,6 +298,10 @@
         "numberOfDecimals": {
           "description": "How many decimals if it is a number element.",
           "type": "integer"
+        },
+        "altText": {
+            "description": "TODO",
+            "type": ["string", "null"]
         }
       }
     },
@@ -284,9 +336,17 @@
             "$ref": "#/$defs/answerOption"
           }
         },
+        "subElementId": {
+            "description": "Internal identifier for this sub-element",
+            "type": "integer"
+        },
         "externalElementId": {
           "description": "Codebook key for this element.",
           "type": "string"
+        },
+        "questionId": {
+            "description": "TODO",
+            "type": "integer"
         },
         "nationalIdNumberType": {
           "description": "Enum specifying the ID format.",
@@ -307,6 +367,10 @@
         "sequence": {
           "description": "Which answer number is this.",
           "type": "integer"
+        },
+        "answerOptionId": {
+            "description": "Internal identifier for this answer option",
+            "type": "integer"
         },
         "externalAnswerOptionId": {
           "description": "Codebook value for this answer option.",
