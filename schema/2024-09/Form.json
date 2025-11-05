@@ -162,7 +162,7 @@
     },
     "formType": {
         "description": "TODO",
-        "enum": ["HIGH-SECURITY", "TODO"]
+        "enum": ["HIGH_SECURITY", "TODO"]
     },
     "titleShort": {
         "description": "TODO",
