@@ -162,11 +162,11 @@
       "type": "string"
     },
     "formType": {
-        "description": "TODO",
+        "description": "The type of this form.",
         "enum": ["DEFAULT", "HIGH_SECURITY", "SIGN_UP", "MULTIPLE_CHOICE", "COURSE_EVALUATION"]
     },
     "titleShort": {
-        "description": "TODO",
+        "description": "Short title for the form.",
         "type": ["string", "null"]
     },
     "netgroupsEditor": {
@@ -189,8 +189,11 @@
         "type": ["string", "null"]
     },
     "personsWithCopyPermission": {
-        "description": "TODO",
-        "type": "TODO"
+        "description": "Persons with edit-permissions for the form.",
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/editor"
+        }
     },
     "netgroupsWithCopyPermission": {
         "description": "Groups with copy-permissions.",
@@ -201,15 +204,11 @@
     },
     "personalDataPurposeDescription": {
         "description": "TODO",
-        "type": ["null", "TODO"]
-    },
-    "personalDataPurposeDescription": {
-        "description": "TODO",
-        "type": ["null", "TODO"]
+        "type": ["string", "null"]
     },
     "personalDataSharedOutsideInstitutionWith": {
         "description": "TODO",
-        "type": ["null", "TODO"]
+        "type": ["string", "null"]
     }
   },
   "$defs": {
