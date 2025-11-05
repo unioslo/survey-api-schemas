@@ -378,7 +378,7 @@
           "type": "string"
         },
         "questionId": {
-            "description": "TODO",
+            "description": "Deprecated internal identifier. Use elementId or subElementId for internal identifier instead",
             "type": "integer"
         },
         "nationalIdNumberType": {
