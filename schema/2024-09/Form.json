@@ -182,7 +182,7 @@
     },
     "editorsContactEmail": {
         "description": "Contact email for the form.",
-        "type": ["integer", "null"]
+        "type": ["string", "null"]
     },
     "personsWithCopyPermission": {
         "description": "TODO",
