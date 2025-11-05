@@ -153,7 +153,7 @@
       "description": "Does the form collect personal data.",
       "type": "boolean"
     },
-    "sensitivePersonalDataCollected": {
+    "isSensitivePersonalDataCollected": {
       "description": "Has sensitive data been collected.",
       "type": "boolean"
     },
