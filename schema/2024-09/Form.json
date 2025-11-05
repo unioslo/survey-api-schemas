@@ -237,6 +237,18 @@
         "username": {
           "description": "Username of the editor.",
           "type": "string"
+        },
+        "isSuperuser": {
+            "description": "User is a super-user.",
+            "type": "boolean"
+        },
+        "isSupportUser": {
+            "description": "User is a support-user.",
+            "type": "boolean"
+        },
+        "hasAccessForCourseEvaluation": {
+            "description": "User has access to course evaluation form type.",
+            "type": "boolean"
         }
       }
     },
