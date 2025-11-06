@@ -271,22 +271,19 @@
       "description": "Elements of the skjema.",
       "type": "object",
       "additionalProperties": false,
-      "required": ["sequence", "mandatory"],
+      "required": ["sequence", "elementId"],
       "properties": {
+        "elementId": {
+            "description": "Internal identifier for this element.",
+            "type": "integer"
+        },
+        "questionId": {
+            "description": "Deprecated internal identifier. Use elementId for internal identifier instead",
+            "type": "integer"
+        },
         "text": {
           "description": "The text of the element, e.g. question text or title for a matrix. May contain HTML entities and tags.",
           "type": "string"
-        },
-        "title": {
-          "description": "Same content as text. Deprecated.",
-          "type": "string"
-        },
-        "sequence": {
-          "description": "Which question number is this.",
-          "type": "integer"
-        },
-        "dateFormat": {
-          "$ref": "#/$defs/dateFormat"
         },
         "description": {
           "description": "Description of the element. May contain HTML entities and tags.",
@@ -295,6 +292,111 @@
         "elementType": {
           "$ref": "#/$defs/elementType"
         },
+        "dateFormat": {
+          "$ref": "#/$defs/dateFormat"
+        },
+        "sequence": {
+          "description": "Which question number is this.",
+          "type": "integer"
+        },
+        "maxSelectedAnswerOptions": {
+            "description": "Max amountof options which can be selected.",
+            "type": "integer"
+        },
+        "imageUrl": {
+            "description": "Url of image if element type is IMAGE.",
+            "type": "string"
+        },
+        "altText": {
+            "description": "Alt text for the element.",
+            "type": ["string", "null"]
+        },
+        "linearScaleType": {
+            "description": "Type for LINEAR_SCALE elements.",
+            "type": "string"
+        },
+        "nationalIdNumberType": {
+            "description": "Type for NATIONAL_ID_NUMBER elements.",
+            "type": "string"
+        },
+        "repeatedNationalIdRequired": {
+            "description": "TODO",
+            "type": "boolean"
+        },
+        "nationalIdNumberOfLetters": {
+            "description": "Number of letters in NATIONAL_ID_NUMBER elements.",
+            "type": "integer"
+        },
+        "nationalIdNumberOfDigits": {
+            "description": "Number of digits in NATIONAL_ID_NUMBER elements.",
+            "type": "integer"
+        },
+        "isAutofill": {
+            "description": "Element is auto-filled.",
+            "type": "boolean"
+        },
+        "title": {
+          "description": "Same content as text. Deprecated.",
+          "type": "string"
+        },
+        "image": {
+          "$ref": "#/$defs/image"
+        },
+        "isMandatory": {
+            "description": "Element is mandatory.",
+            "type": "boolean"
+        },
+        "isHorizontal": {
+            "description": "TODO",
+            "type": "boolean"
+        },
+        "isRangeMarksShown": {
+            "description": "If range markers are enabled for LINEAR_SCALE elements.",
+            "type": "boolean"
+        },
+        "externalElementId": {
+          "description": "Codebook key for this element",
+          "type": "string"
+        },
+        "minimumValue": {
+            "description": "Minimum value for supported elements.",
+            "type": "integer"
+        },
+        "maximumValue": {
+            "description": "Maximum value for supported elements.",
+            "type": "integer"
+        },
+        "sendAdditionalRecipientEmail": {
+            "description": "TODO",
+            "type": "boolean"
+        },
+        "useForRedirectToForm": {
+            "description": "This element affects if/where to redirect after form.",
+            "type": "boolean"
+        },
+        "minimumValueText": {
+            "description": "Description for minimum values.",
+            "type": "string"
+        },
+        "midValueText": {
+            "description": "Description for middle values.",
+            "type": "string"
+        },
+        "maximumValueText": {
+            "description": "Description for max values.",
+            "type": "string"
+        },
+        "numberOfDecimals": {
+            "description": "Number of decimals for NUMBER elements.",
+            "type": "integer"
+        },
+        "routingReferenceIds": {
+            "description": "TODO",
+            "type": "array",
+            "items": {
+                "type": "integer"
+            }
+        },
         "answerOptions": {
           "description": "Answer options.",
           "type": "array",
@@ -302,39 +404,32 @@
             "$ref": "#/$defs/answerOption"
           }
         },
-        "elementId": {
-            "description": "Internal identifier for this element.",
-            "type": "integer"
-        },
-        "externalElementId": {
-          "description": "Codebook key for this element",
-          "type": "string"
-        },
-        "subElements": {
-          "type": "array",
-          "items": [{ "$ref": "#/$defs/subElement" }]
-        },
-        "nationalIdNumberType": {
-          "description": "Enum specifying the ID format",
-          "type": "string"
-        },
-        "isAnswerHashed": {
-          "description": "Boolean specifying if the answer should be hashed or not.",
-          "type": "boolean"
-        },
         "answerOptionsVisibilityFilter": {
           "description": "List of answerOptionIDs. This element becomes visible if one of the options is selected.",
           "type": "array",
           "items": [{ "$ref": "#/$defs/visibilityFilterItem" }],
           "minItems": 1
         },
-        "numberOfDecimals": {
-          "description": "How many decimals if it is a number element.",
-          "type": "integer"
+        "subElements": {
+          "type": "array",
+          "items": [{ "$ref": "#/$defs/subElement" }]
         },
-        "altText": {
+        "validationScripts": {
             "description": "TODO",
-            "type": ["string", "null"]
+            "type": "array",
+            "items": [{ "$ref": "#/$defs/validationScript" }]
+        },
+        "isAnswerHashed": {
+          "description": "Boolean specifying if the answer should be hashed or not.",
+          "type": "boolean"
+        },
+        "maxNumberOfCharacters": {
+            "description": "Max characters allowed in supported answer types.",
+            "type": "integer"
+        },
+        "isRandomizedOrder": {
+            "description": "Order of sub-elements or sub-options are randomized.",
+            "type": "boolean"
         }
       }
     },
@@ -459,6 +554,25 @@
             "mediaType": {
                 "description": "Media type of the image.",
                 "type": "string"
+            }
+        }
+    },
+    "validationScript": {
+        "description": "Script for validating values.",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "title": {
+                "description": "Title of the script.",
+                "type": "string"
+            },
+            "content": {
+                "description": "Content of the script.",
+                "type": "string"
+            },
+            "validationScriptId": {
+                "description": "Internal identifier for the script.",
+                "type": "integer"
             }
         }
     },
