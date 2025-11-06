@@ -434,25 +434,45 @@
       }
     },
     "subElement": {
-      "description": "SubElements of an element.",
+      "description": "Sub-elements of an element.",
       "type": "object",
       "additionalProperties": false,
-      "required": ["sequence", "mandatory"],
+      "required": ["sequence"],
       "properties": {
-        "text": {
-          "description": "Question text. May contain HTML entities and tags.",
-          "type": "string"
+        "subElementId": {
+            "description": "Internal identifier for this sub-element",
+            "type": "integer"
+        },
+        "questionId": {
+            "description": "Deprecated internal identifier. Use elementId or subElementId for internal identifier instead",
+            "type": "integer"
         },
         "sequence": {
           "description": "Which question number is this.",
           "type": "integer"
         },
-        "dateFormat": {
-          "$ref": "#/$defs/dateFormat"
-        },
         "description": {
           "description": "Description of the element. May contain HTML entities and tags.",
           "type": "string"
+        },
+        "text": {
+          "description": "Question text. May contain HTML entities and tags.",
+          "type": "string"
+        },
+        "isMandatory": {
+            "description": "Element is mandatory.",
+            "type": "boolean"
+        },
+        "externalElementId": {
+          "description": "Codebook key for this element.",
+          "type": "string"
+        },
+        "sendAdditionalRecipientEmail": {
+            "description": "TODO",
+            "type": "boolean"
+        },
+        "dateFormat": {
+          "$ref": "#/$defs/dateFormat"
         },
         "elementType": {
           "$ref": "#/$defs/elementType"
@@ -463,18 +483,6 @@
           "items": {
             "$ref": "#/$defs/answerOption"
           }
-        },
-        "subElementId": {
-            "description": "Internal identifier for this sub-element",
-            "type": "integer"
-        },
-        "externalElementId": {
-          "description": "Codebook key for this element.",
-          "type": "string"
-        },
-        "questionId": {
-            "description": "Deprecated internal identifier. Use elementId or subElementId for internal identifier instead",
-            "type": "integer"
         },
         "nationalIdNumberType": {
           "description": "Enum specifying the ID format.",
