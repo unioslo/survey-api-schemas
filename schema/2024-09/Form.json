@@ -470,23 +470,6 @@
         "sendAdditionalRecipientEmail": {
             "description": "TODO",
             "type": "boolean"
-        },
-        "dateFormat": {
-          "$ref": "#/$defs/dateFormat"
-        },
-        "elementType": {
-          "$ref": "#/$defs/elementType"
-        },
-        "answerOptions": {
-          "description": "Answer options.",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/answerOption"
-          }
-        },
-        "nationalIdNumberType": {
-          "description": "Enum specifying the ID format.",
-          "type": "string"
         }
       }
     },
