@@ -263,7 +263,7 @@
             },
             "name": {
                 "description": "Name of the netgroup.",
-                "type": "integer"
+                "type": "string"
             }
         }
     },
