@@ -412,8 +412,55 @@
         "redirectToForm": {
           "description": "The form id the user will be redirected to after delivery, if this answer option was picked. If a form id is defined the element it belongs to will always have the `useForRedirectToForm` set to true. If both `redirectToForm` and `afterDeliveryForwardFormIds` is set, `useForRedirectToForm` has priority after delivery.",
           "type": "integer"
+        },
+        "isPreselected": {
+          "description": "This value is preselected.",
+          "type": "boolean"
+        },
+        "isCorrect": {
+          "description": "This value is the correct value for this answer.",
+          "type": "boolean"
+        },
+        "image": {
+          "$ref": "#/$defs/image"
+        },
+        "imageUrl": {
+            "description": "URL for image.",
+            "type": "string"
+        },
+        "altText": {
+            "description": "Alt-text for the element",
+            "type": "string"
+        },
+        "additionalRecipientEmail": {
+            "description": "TODO",
+            "type": "string"
         }
       }
+    },
+    "image": {
+        "description": "Image.",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [],
+        "properties": {
+            "imageId": {
+                "description": "Internal identifier for the image.",
+                "type": "string"
+            },
+            "filename": {
+                "description": "Filename for the image.",
+                "type": "string"
+            },
+            "size": {
+                "description": "Size of the image.",
+                "type": "integer"
+            },
+            "mediaType": {
+                "description": "Media type of the image.",
+                "type": "string"
+            }
+        }
     },
     "elementType": {
       "description": "Nettskjema question types.",
