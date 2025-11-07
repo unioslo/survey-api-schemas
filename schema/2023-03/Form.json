@@ -179,7 +179,7 @@
       "type": ["string", "null"]
     },
     "maxSubmissionsForm": {
-      "description": "TODO",
+      "description": "The number a respondent is allowed to submit a submission",
       "type": ["integer", "null"]
     },
     "editorsContactEmail": {
@@ -201,11 +201,11 @@
       }
     },
     "personalDataPurposeDescription": {
-      "description": "TODO",
+      "description": "Description of the purposes for collecting personal data",
       "type": ["string", "null"]
     },
     "personalDataSharedOutsideInstitutionWith": {
-      "description": "TODO",
+      "description": "Description of where else the personal data can be shared to, outside of formowner's institution.",
       "type": ["string", "null"]
     }
   },
