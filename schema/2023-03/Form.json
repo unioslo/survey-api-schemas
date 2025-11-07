@@ -16,10 +16,8 @@
     "createdDate",
     "languageCode",
     "modifiedDate",
-    "projectName",
     "respondentGroup",
-    "collectsPersonalData",
-    "sensitivePersonalDataCollected"
+    "collectsPersonalData"
   ],
   "properties": {
     "$schema": {
@@ -36,7 +34,7 @@
     },
     "formId": {
       "description": "Unique identifier for the skjema.",
-      "type": "number"
+      "type": "integer"
     },
     "datasets": {
       "description": "What datasets should be generated for this form.",
@@ -81,7 +79,7 @@
     },
     "openFrom": {
       "description": "The date the form is opened.",
-      "type": "string"
+      "type": ["string", "null"]
     },
     "openTo": {
       "description": "The date the form is closed.",
@@ -136,13 +134,13 @@
       "description": "Where the form will be delivered.",
       "$comment": "https://github.uio.no/IT-NETTSKJEMA/nettskjema-api/blob/master/src/main/java/no/uio/webapps/nettskjema/api/v3/form/enums/DeliveryDestination.java",
       "type": "string",
-      "enum": ["TSD", "EDUCLOUD"]
+      "enum": ["TSD", "EDUCLOUD", "DATABASE", "DATABASE_ENCRYPTED"]
     },
     "collectsPersonalData": {
       "description": "Does the form collect personal data.",
       "type": "boolean"
     },
-    "sensitivePersonalDataCollected": {
+    "isSensitivePersonalDataCollected": {
       "description": "Has sensitive data been collected.",
       "type": "boolean"
     },
@@ -172,7 +170,7 @@
         },
         "personId": {
           "description": "Unique identifier for this person.",
-          "type": "number"
+          "type": "integer"
         },
         "username": {
           "description": "Username of the editor.",
@@ -196,7 +194,7 @@
         },
         "sequence": {
           "description": "Which question number is this.",
-          "type": "number"
+          "type": ["integer", "null"]
         },
         "dateFormat": {
           "$ref": "#/$defs/dateFormat"
@@ -207,6 +205,10 @@
         },
         "elementType": {
           "$ref": "#/$defs/elementType"
+        },
+        "elementId": {
+            "description": "Internal identifier for element.",
+            "type": ["integer", "null"]
         },
         "answerOptions": {
           "description": "Answer options.",
@@ -251,7 +253,7 @@
         },
         "sequence": {
           "description": "Which question number is this.",
-          "type": "number"
+          "type": "integer"
         },
         "dateFormat": {
           "$ref": "#/$defs/dateFormat"
@@ -292,7 +294,7 @@
         },
         "sequence": {
           "description": "Which answer number is this.",
-          "type": "number"
+          "type": "integer"
         },
         "externalAnswerOptionId": {
           "description": "Codebook value for this answer option.",
@@ -340,8 +342,12 @@
       "additionalProperties": false,
       "required": ["externalElementId", "externalAnswerOptionId"],
       "properties": {
-        "externalElementId": "string",
-        "externalAnswerOptionId": "string"
+        "externalElementId": {
+            "type": "string"
+        },
+        "externalAnswerOptionId": {
+            "type": "string"
+        }
       }
     }
   }
