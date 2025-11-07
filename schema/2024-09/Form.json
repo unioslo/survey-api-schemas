@@ -275,7 +275,7 @@
       "properties": {
         "elementId": {
             "description": "Internal identifier for this element.",
-            "type": "integer"
+            "type": ["integer", "null"]
         },
         "questionId": {
             "description": "Deprecated internal identifier. Use elementId for internal identifier instead",
@@ -297,7 +297,7 @@
         },
         "sequence": {
           "description": "Which question number is this.",
-          "type": "integer"
+          "type": ["integer", "null"]
         },
         "maxSelectedAnswerOptions": {
             "description": "Max amountof options which can be selected.",
