@@ -187,7 +187,7 @@
       "type": ["string", "null"]
     },
     "maxSubmissionsForm": {
-      "description": "TODO",
+      "description": "The number a respondent is allowed to submit a submission",
       "type": ["integer", "null"]
     },
     "editorsContactEmail": {
@@ -209,11 +209,11 @@
       }
     },
     "personalDataPurposeDescription": {
-      "description": "TODO",
+      "description": "Description of the purposes for collecting personal data",
       "type": ["string", "null"]
     },
     "personalDataSharedOutsideInstitutionWith": {
-      "description": "TODO",
+      "description": "Description of where else the personal data can be shared to, outside of formowner's institution.",
       "type": ["string", "null"]
     }
   },
@@ -285,7 +285,7 @@
         },
         "questionId": {
           "description": "Deprecated internal identifier. Use elementId for internal identifier instead",
-          "type": "integer"
+          "type": ["integer", "null"]
         },
         "text": {
           "description": "The text of the element, e.g. question text or title for a matrix. May contain HTML entities and tags.",
@@ -311,7 +311,7 @@
         },
         "imageUrl": {
           "description": "Url of image if element type is IMAGE.",
-          "type": "string"
+          "type": ["string", "null"]
         },
         "altText": {
           "description": "Alt text for the element.",
@@ -326,7 +326,7 @@
           "type": "string"
         },
         "repeatedNationalIdRequired": {
-          "description": "TODO",
+          "description": "An additional field for respondent to type their pid for double verification",
           "type": "boolean"
         },
         "nationalIdNumberOfLetters": {
@@ -353,7 +353,7 @@
           "type": "boolean"
         },
         "isHorizontal": {
-          "description": "TODO",
+          "description": "Only applicable if element type is LINEAR_SCALE. Will render the scale horizontally instead of vertically.",
           "type": "boolean"
         },
         "isRangeMarksShown": {
@@ -373,7 +373,7 @@
           "type": "integer"
         },
         "sendAdditionalRecipientEmail": {
-          "description": "TODO",
+          "description": "Requires additionalRecipientEmail on answer option. Will send email to additionalRecipientEmail if the answer option is picked.",
           "type": "boolean"
         },
         "useForRedirectToForm": {
@@ -397,7 +397,7 @@
           "type": "integer"
         },
         "routingReferenceIds": {
-          "description": "TODO",
+          "description": "Not used. Deprecated",
           "type": "array",
           "items": {
             "type": "integer"
@@ -421,7 +421,7 @@
           "items": [{ "$ref": "#/$defs/subElement" }]
         },
         "validationScripts": {
-          "description": "TODO",
+          "description": "Custom javascript to validate respondent input on elements. Only able to set by superuser.",
           "type": "array",
           "items": [{ "$ref": "#/$defs/validationScript" }]
         },
@@ -474,7 +474,7 @@
           "type": "string"
         },
         "sendAdditionalRecipientEmail": {
-          "description": "TODO",
+          "description": "If answer option is picked, an email will be sent to additionalRecipientEmail. Requires sendAdditionalRecipientEmail.",
           "type": "boolean"
         }
       }
@@ -525,7 +525,7 @@
           "type": "string"
         },
         "additionalRecipientEmail": {
-          "description": "TODO",
+          "description": "If answer option is picked, an email will be sent to additionalRecipientEmail. Requires sendAdditionalRecipientEmail.",
           "type": "string"
         }
       }
