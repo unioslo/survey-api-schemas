@@ -154,53 +154,59 @@
       "type": "string"
     },
     "formType": {
-        "description": "The type of this form.",
-        "enum": ["DEFAULT", "HIGH_SECURITY", "SIGN_UP", "MULTIPLE_CHOICE", "COURSE_EVALUATION"]
+      "description": "The type of this form.",
+      "enum": [
+        "DEFAULT",
+        "HIGH_SECURITY",
+        "SIGN_UP",
+        "MULTIPLE_CHOICE",
+        "COURSE_EVALUATION"
+      ]
     },
     "netgroupsEditor": {
-        "description": "Groups with editor permissions.",
-        "type": "array",
-        "items": {
-          "$ref": "#/$defs/netgroup"
-        }
+      "description": "Groups with editor permissions.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/netgroup"
+      }
     },
     "titleShort": {
-        "description": "Short title for the form.",
-        "type": ["string", "null"]
+      "description": "Short title for the form.",
+      "type": ["string", "null"]
     },
     "editorsContactUrl": {
-        "description": "Contact url for editor of the form.",
-        "type": ["string", "null"]
+      "description": "Contact url for editor of the form.",
+      "type": ["string", "null"]
     },
     "maxSubmissionsForm": {
-        "description": "TODO",
-        "type": ["integer", "null"]
+      "description": "TODO",
+      "type": ["integer", "null"]
     },
     "editorsContactEmail": {
-        "description": "Contact email for the form.",
-        "type": ["string", "null"]
+      "description": "Contact email for the form.",
+      "type": ["string", "null"]
     },
     "personsWithCopyPermission": {
-        "description": "Persons with edit-permissions for the form.",
-        "type": "array",
-        "items": {
-          "$ref": "#/$defs/editor"
-        }
+      "description": "Persons with edit-permissions for the form.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/editor"
+      }
     },
     "netgroupsWithCopyPermission": {
-        "description": "Groups with copy-permissions.",
-        "type": "array",
-        "items": {
-          "$ref": "#/$defs/netgroup"
-        }
+      "description": "Groups with copy-permissions.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/netgroup"
+      }
     },
     "personalDataPurposeDescription": {
-        "description": "TODO",
-        "type": ["string", "null"]
+      "description": "TODO",
+      "type": ["string", "null"]
     },
     "personalDataSharedOutsideInstitutionWith": {
-        "description": "TODO",
-        "type": ["string", "null"]
+      "description": "TODO",
+      "type": ["string", "null"]
     }
   },
   "$defs": {
@@ -233,19 +239,19 @@
       }
     },
     "netgroup": {
-        "description": "Netgroup editor.",
-        "type": "object",
-        "required": ["netgroupId", "name"],
-        "properties": {
-            "netgroupId": {
-                "description": "Identifier for the netgroup.",
-                "type": "integer"
-            },
-            "name": {
-                "description": "Name of the netgroup.",
-                "type": "string"
-            }
+      "description": "Netgroup editor.",
+      "type": "object",
+      "required": ["netgroupId", "name"],
+      "properties": {
+        "netgroupId": {
+          "description": "Identifier for the netgroup.",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name of the netgroup.",
+          "type": "string"
         }
+      }
     },
     "element": {
       "description": "Elements of the skjema.",
@@ -254,8 +260,8 @@
       "required": ["sequence", "mandatory"],
       "properties": {
         "elementId": {
-            "description": "Internal identifier for element.",
-            "type": ["integer", "null"]
+          "description": "Internal identifier for element.",
+          "type": ["integer", "null"]
         },
         "text": {
           "description": "The text of the element, e.g. question text or title for a matrix. May contain HTML entities and tags.",
@@ -270,8 +276,8 @@
           "type": ["integer", "null"]
         },
         "altText": {
-            "description": "Alt text for the element.",
-            "type": ["string", "null"]
+          "description": "Alt text for the element.",
+          "type": ["string", "null"]
         },
         "dateFormat": {
           "$ref": "#/$defs/dateFormat"
@@ -370,8 +376,8 @@
           "type": "integer"
         },
         "answerOptionId": {
-            "description": "Internal identifier for this answer option",
-            "type": "integer"
+          "description": "Internal identifier for this answer option",
+          "type": "integer"
         },
         "externalAnswerOptionId": {
           "description": "Codebook value for this answer option.",
@@ -420,10 +426,10 @@
       "required": ["externalElementId", "externalAnswerOptionId"],
       "properties": {
         "externalElementId": {
-            "type": "string"
+          "type": "string"
         },
         "externalAnswerOptionId": {
-            "type": "string"
+          "type": "string"
         }
       }
     }

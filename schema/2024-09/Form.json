@@ -44,8 +44,8 @@
       "const": "2024-09"
     },
     "versionMinor": {
-        "description": "Minor version of the schema. Increased for non-breaking changes. Current version is 2",
-        "type": "integer"
+      "description": "Minor version of the schema. Increased for non-breaking changes. Current version is 2",
+      "type": "integer"
     },
     "datasets": {
       "description": "What datasets should be generated for this form.",
@@ -162,53 +162,59 @@
       "type": "string"
     },
     "formType": {
-        "description": "The type of this form.",
-        "enum": ["DEFAULT", "HIGH_SECURITY", "SIGN_UP", "MULTIPLE_CHOICE", "COURSE_EVALUATION"]
+      "description": "The type of this form.",
+      "enum": [
+        "DEFAULT",
+        "HIGH_SECURITY",
+        "SIGN_UP",
+        "MULTIPLE_CHOICE",
+        "COURSE_EVALUATION"
+      ]
     },
     "titleShort": {
-        "description": "Short title for the form.",
-        "type": ["string", "null"]
+      "description": "Short title for the form.",
+      "type": ["string", "null"]
     },
     "netgroupsEditor": {
-        "description": "Groups with editor permissions.",
-        "type": "array",
-        "items": {
-          "$ref": "#/$defs/netgroup"
-        }
+      "description": "Groups with editor permissions.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/netgroup"
+      }
     },
     "editorsContactUrl": {
-        "description": "Contact url for editor of the form.",
-        "type": ["string", "null"]
+      "description": "Contact url for editor of the form.",
+      "type": ["string", "null"]
     },
     "maxSubmissionsForm": {
-        "description": "TODO",
-        "type": ["integer", "null"]
+      "description": "TODO",
+      "type": ["integer", "null"]
     },
     "editorsContactEmail": {
-        "description": "Contact email for the form.",
-        "type": ["string", "null"]
+      "description": "Contact email for the form.",
+      "type": ["string", "null"]
     },
     "personsWithCopyPermission": {
-        "description": "Persons with edit-permissions for the form.",
-        "type": "array",
-        "items": {
-          "$ref": "#/$defs/editor"
-        }
+      "description": "Persons with edit-permissions for the form.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/editor"
+      }
     },
     "netgroupsWithCopyPermission": {
-        "description": "Groups with copy-permissions.",
-        "type": "array",
-        "items": {
-          "$ref": "#/$defs/netgroup"
-        }
+      "description": "Groups with copy-permissions.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/netgroup"
+      }
     },
     "personalDataPurposeDescription": {
-        "description": "TODO",
-        "type": ["string", "null"]
+      "description": "TODO",
+      "type": ["string", "null"]
     },
     "personalDataSharedOutsideInstitutionWith": {
-        "description": "TODO",
-        "type": ["string", "null"]
+      "description": "TODO",
+      "type": ["string", "null"]
     }
   },
   "$defs": {
@@ -239,33 +245,33 @@
           "type": "string"
         },
         "isSuperuser": {
-            "description": "User is a super-user.",
-            "type": "boolean"
+          "description": "User is a super-user.",
+          "type": "boolean"
         },
         "isSupportUser": {
-            "description": "User is a support-user.",
-            "type": "boolean"
+          "description": "User is a support-user.",
+          "type": "boolean"
         },
         "hasAccessForCourseEvaluation": {
-            "description": "User has access to course evaluation form type.",
-            "type": "boolean"
+          "description": "User has access to course evaluation form type.",
+          "type": "boolean"
         }
       }
     },
     "netgroup": {
-        "description": "Netgroup editor.",
-        "type": "object",
-        "required": ["netgroupId", "name"],
-        "properties": {
-            "netgroupId": {
-                "description": "Identifier for the netgroup.",
-                "type": "integer"
-            },
-            "name": {
-                "description": "Name of the netgroup.",
-                "type": "string"
-            }
+      "description": "Netgroup editor.",
+      "type": "object",
+      "required": ["netgroupId", "name"],
+      "properties": {
+        "netgroupId": {
+          "description": "Identifier for the netgroup.",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name of the netgroup.",
+          "type": "string"
         }
+      }
     },
     "element": {
       "description": "Elements of the skjema.",
@@ -274,12 +280,12 @@
       "required": ["sequence", "elementId"],
       "properties": {
         "elementId": {
-            "description": "Internal identifier for this element.",
-            "type": ["integer", "null"]
+          "description": "Internal identifier for this element.",
+          "type": ["integer", "null"]
         },
         "questionId": {
-            "description": "Deprecated internal identifier. Use elementId for internal identifier instead",
-            "type": "integer"
+          "description": "Deprecated internal identifier. Use elementId for internal identifier instead",
+          "type": "integer"
         },
         "text": {
           "description": "The text of the element, e.g. question text or title for a matrix. May contain HTML entities and tags.",
@@ -300,40 +306,40 @@
           "type": ["integer", "null"]
         },
         "maxSelectedAnswerOptions": {
-            "description": "Max amountof options which can be selected.",
-            "type": "integer"
+          "description": "Max amountof options which can be selected.",
+          "type": "integer"
         },
         "imageUrl": {
-            "description": "Url of image if element type is IMAGE.",
-            "type": "string"
+          "description": "Url of image if element type is IMAGE.",
+          "type": "string"
         },
         "altText": {
-            "description": "Alt text for the element.",
-            "type": ["string", "null"]
+          "description": "Alt text for the element.",
+          "type": ["string", "null"]
         },
         "linearScaleType": {
-            "description": "Type for LINEAR_SCALE elements.",
-            "type": "string"
+          "description": "Type for LINEAR_SCALE elements.",
+          "type": "string"
         },
         "nationalIdNumberType": {
-            "description": "Type for NATIONAL_ID_NUMBER elements.",
-            "type": "string"
+          "description": "Type for NATIONAL_ID_NUMBER elements.",
+          "type": "string"
         },
         "repeatedNationalIdRequired": {
-            "description": "TODO",
-            "type": "boolean"
+          "description": "TODO",
+          "type": "boolean"
         },
         "nationalIdNumberOfLetters": {
-            "description": "Number of letters in NATIONAL_ID_NUMBER elements.",
-            "type": "integer"
+          "description": "Number of letters in NATIONAL_ID_NUMBER elements.",
+          "type": "integer"
         },
         "nationalIdNumberOfDigits": {
-            "description": "Number of digits in NATIONAL_ID_NUMBER elements.",
-            "type": "integer"
+          "description": "Number of digits in NATIONAL_ID_NUMBER elements.",
+          "type": "integer"
         },
         "isAutofill": {
-            "description": "Element is auto-filled.",
-            "type": "boolean"
+          "description": "Element is auto-filled.",
+          "type": "boolean"
         },
         "title": {
           "description": "Same content as text. Deprecated.",
@@ -343,59 +349,59 @@
           "$ref": "#/$defs/image"
         },
         "isMandatory": {
-            "description": "Element is mandatory.",
-            "type": "boolean"
+          "description": "Element is mandatory.",
+          "type": "boolean"
         },
         "isHorizontal": {
-            "description": "TODO",
-            "type": "boolean"
+          "description": "TODO",
+          "type": "boolean"
         },
         "isRangeMarksShown": {
-            "description": "If range markers are enabled for LINEAR_SCALE elements.",
-            "type": "boolean"
+          "description": "If range markers are enabled for LINEAR_SCALE elements.",
+          "type": "boolean"
         },
         "externalElementId": {
           "description": "Codebook key for this element",
           "type": "string"
         },
         "minimumValue": {
-            "description": "Minimum value for supported elements.",
-            "type": "integer"
+          "description": "Minimum value for supported elements.",
+          "type": "integer"
         },
         "maximumValue": {
-            "description": "Maximum value for supported elements.",
-            "type": "integer"
+          "description": "Maximum value for supported elements.",
+          "type": "integer"
         },
         "sendAdditionalRecipientEmail": {
-            "description": "TODO",
-            "type": "boolean"
+          "description": "TODO",
+          "type": "boolean"
         },
         "useForRedirectToForm": {
-            "description": "This element affects if/where to redirect after form.",
-            "type": "boolean"
+          "description": "This element affects if/where to redirect after form.",
+          "type": "boolean"
         },
         "minimumValueText": {
-            "description": "Description for minimum values.",
-            "type": "string"
+          "description": "Description for minimum values.",
+          "type": "string"
         },
         "midValueText": {
-            "description": "Description for middle values.",
-            "type": "string"
+          "description": "Description for middle values.",
+          "type": "string"
         },
         "maximumValueText": {
-            "description": "Description for max values.",
-            "type": "string"
+          "description": "Description for max values.",
+          "type": "string"
         },
         "numberOfDecimals": {
-            "description": "Number of decimals for NUMBER elements.",
-            "type": "integer"
+          "description": "Number of decimals for NUMBER elements.",
+          "type": "integer"
         },
         "routingReferenceIds": {
-            "description": "TODO",
-            "type": "array",
-            "items": {
-                "type": "integer"
-            }
+          "description": "TODO",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
         },
         "answerOptions": {
           "description": "Answer options.",
@@ -415,21 +421,21 @@
           "items": [{ "$ref": "#/$defs/subElement" }]
         },
         "validationScripts": {
-            "description": "TODO",
-            "type": "array",
-            "items": [{ "$ref": "#/$defs/validationScript" }]
+          "description": "TODO",
+          "type": "array",
+          "items": [{ "$ref": "#/$defs/validationScript" }]
         },
         "isAnswerHashed": {
           "description": "Boolean specifying if the answer should be hashed or not.",
           "type": "boolean"
         },
         "maxNumberOfCharacters": {
-            "description": "Max characters allowed in supported answer types.",
-            "type": "integer"
+          "description": "Max characters allowed in supported answer types.",
+          "type": "integer"
         },
         "isRandomizedOrder": {
-            "description": "Order of sub-elements or sub-options are randomized.",
-            "type": "boolean"
+          "description": "Order of sub-elements or sub-options are randomized.",
+          "type": "boolean"
         }
       }
     },
@@ -440,12 +446,12 @@
       "required": ["sequence"],
       "properties": {
         "subElementId": {
-            "description": "Internal identifier for this sub-element",
-            "type": "integer"
+          "description": "Internal identifier for this sub-element",
+          "type": "integer"
         },
         "questionId": {
-            "description": "Deprecated internal identifier. Use elementId or subElementId for internal identifier instead",
-            "type": "integer"
+          "description": "Deprecated internal identifier. Use elementId or subElementId for internal identifier instead",
+          "type": "integer"
         },
         "sequence": {
           "description": "Which question number is this.",
@@ -460,16 +466,16 @@
           "type": "string"
         },
         "isMandatory": {
-            "description": "Element is mandatory.",
-            "type": "boolean"
+          "description": "Element is mandatory.",
+          "type": "boolean"
         },
         "externalElementId": {
           "description": "Codebook key for this element.",
           "type": "string"
         },
         "sendAdditionalRecipientEmail": {
-            "description": "TODO",
-            "type": "boolean"
+          "description": "TODO",
+          "type": "boolean"
         }
       }
     },
@@ -488,8 +494,8 @@
           "type": "integer"
         },
         "answerOptionId": {
-            "description": "Internal identifier for this answer option",
-            "type": "integer"
+          "description": "Internal identifier for this answer option",
+          "type": "integer"
         },
         "externalAnswerOptionId": {
           "description": "Codebook value for this answer option.",
@@ -511,61 +517,61 @@
           "$ref": "#/$defs/image"
         },
         "imageUrl": {
-            "description": "URL for image.",
-            "type": "string"
+          "description": "URL for image.",
+          "type": "string"
         },
         "altText": {
-            "description": "Alt-text for the element",
-            "type": "string"
+          "description": "Alt-text for the element",
+          "type": "string"
         },
         "additionalRecipientEmail": {
-            "description": "TODO",
-            "type": "string"
+          "description": "TODO",
+          "type": "string"
         }
       }
     },
     "image": {
-        "description": "Image.",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [],
-        "properties": {
-            "imageId": {
-                "description": "Internal identifier for the image.",
-                "type": "string"
-            },
-            "filename": {
-                "description": "Filename for the image.",
-                "type": "string"
-            },
-            "size": {
-                "description": "Size of the image.",
-                "type": "integer"
-            },
-            "mediaType": {
-                "description": "Media type of the image.",
-                "type": "string"
-            }
+      "description": "Image.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "imageId": {
+          "description": "Internal identifier for the image.",
+          "type": "string"
+        },
+        "filename": {
+          "description": "Filename for the image.",
+          "type": "string"
+        },
+        "size": {
+          "description": "Size of the image.",
+          "type": "integer"
+        },
+        "mediaType": {
+          "description": "Media type of the image.",
+          "type": "string"
         }
+      }
     },
     "validationScript": {
-        "description": "Script for validating values.",
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "title": {
-                "description": "Title of the script.",
-                "type": "string"
-            },
-            "content": {
-                "description": "Content of the script.",
-                "type": "string"
-            },
-            "validationScriptId": {
-                "description": "Internal identifier for the script.",
-                "type": "integer"
-            }
+      "description": "Script for validating values.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "description": "Title of the script.",
+          "type": "string"
+        },
+        "content": {
+          "description": "Content of the script.",
+          "type": "string"
+        },
+        "validationScriptId": {
+          "description": "Internal identifier for the script.",
+          "type": "integer"
         }
+      }
     },
     "elementType": {
       "description": "Nettskjema question types.",
