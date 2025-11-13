@@ -121,8 +121,8 @@
             "const": "2024-09"
         },
         "version_minor": {
-            "description": "Minor version of the schema. Increased for non-breaking changes.",
-            "const": 2
+            "description": "Minor version of the schema. Increased for non-breaking changes. Current version is 2.",
+            "type": "integer"
         }
     },
     "$defs": {
