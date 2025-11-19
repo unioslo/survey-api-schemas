@@ -141,7 +141,8 @@
                     "enum": [
                         "tsd",
                         "idporten",
-                        "feide"
+                        "feide",
+                        "helsenorge"
                     ]
                 },
                 "sub": {
